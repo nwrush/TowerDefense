@@ -1,0 +1,6 @@
+C:\Users\s-nrush\AppData\Local\Temporary Projects\TowerDefense\bin\x86\Debug\TowerDefense.exe
+C:\Users\s-nrush\AppData\Local\Temporary Projects\TowerDefense\bin\x86\Debug\TowerDefense.pdb
+C:\Users\s-nrush\AppData\Local\Temporary Projects\TowerDefense\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\s-nrush\AppData\Local\Temporary Projects\TowerDefense\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\s-nrush\AppData\Local\Temporary Projects\TowerDefense\obj\x86\Debug\TowerDefense.exe
+C:\Users\s-nrush\AppData\Local\Temporary Projects\TowerDefense\obj\x86\Debug\TowerDefense.pdb
