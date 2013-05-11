@@ -67,7 +67,9 @@ namespace TowerDefense {
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) {
+                Environment.Exit(0);
+            }
             base.Update(gameTime);
         }
 
