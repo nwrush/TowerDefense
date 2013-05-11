@@ -24,7 +24,7 @@ namespace TowerDefense.src {
         public virtual void Update() {
             this.pos += this.speed;
         }
-
+        //Flursmynerf
         public virtual void Draw(SpriteBatch spritebatch) {
             spritebatch.Draw(this.texture, this.pos, Color.Transparent);
         }
