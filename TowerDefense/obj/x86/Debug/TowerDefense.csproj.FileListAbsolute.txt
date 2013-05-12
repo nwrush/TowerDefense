@@ -10,3 +10,5 @@ C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\obj\x86\Debug\TowerDef
 C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\obj\x86\Debug\TowerDefense.exe
 C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\obj\x86\Debug\TowerDefense.pdb
+C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\bin\x86\Debug\Content\Plain-Bagel.xnb
+C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\bin\x86\Debug\Content\TowerMap.xnb

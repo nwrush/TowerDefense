@@ -42,8 +42,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="250px-Plain-Bagel.jpg">
-      <Name>250px-Plain-Bagel</Name>
+    <Compile Include="TowerMap.png">
+      <Name>TowerMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="250px-Plain-Bagel.png">
+      <Name>Plain-Bagel</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

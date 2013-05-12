@@ -110,6 +110,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="src\Background.cs" />
     <Compile Include="src\Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,8 +118,9 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MacbethGameContent\MacbethGameContent.contentproj">
-      <Name>MacbethGameContent</Name>
+    <ProjectReference Include="..\TowerDefenseContent\TowerDefenseContent.contentproj">
+      <Project>{2385906B-5942-44EA-9805-CFEB4D53F9AC}</Project>
+      <Name>TowerDefenseContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>

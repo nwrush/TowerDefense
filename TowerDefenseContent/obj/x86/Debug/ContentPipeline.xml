@@ -2,13 +2,22 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>250px-Plain-Bagel.jpg</Source>
-      <Name>250px-Plain-Bagel</Name>
+      <Source>TowerMap.png</Source>
+      <Name>TowerMap</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\nikko\documents\visual studio 2010\Projects\TowerDefense\TowerDefense\TowerDefense\bin\x86\Debug\Content\250px-Plain-Bagel.xnb</Output>
-      <Time>2012-04-18T22:27:16.443778-07:00</Time>
+      <Output>C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\bin\x86\Debug\Content\TowerMap.xnb</Output>
+      <Time>2013-05-11T18:23:48.9580216-07:00</Time>
+    </Item>
+    <Item>
+      <Source>250px-Plain-Bagel.png</Source>
+      <Name>Plain-Bagel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\bin\x86\Debug\Content\Plain-Bagel.xnb</Output>
+      <Time>2013-05-11T18:37:19.4373784-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -16,10 +25,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>c:\users\nikko\documents\visual studio 2010\Projects\TowerDefense\TowerDefense\TowerDefenseContent\</RootDirectory>
-      <LoggerRootDirectory>c:\users\nikko\documents\visual studio 2010\Projects\TowerDefense\TowerDefense\TowerDefense\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\nikko\documents\visual studio 2010\Projects\TowerDefense\TowerDefense\TowerDefenseContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>c:\users\nikko\documents\visual studio 2010\Projects\TowerDefense\TowerDefense\TowerDefense\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefenseContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefenseContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

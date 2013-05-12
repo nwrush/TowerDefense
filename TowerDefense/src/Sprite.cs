@@ -11,22 +11,37 @@ namespace TowerDefense.src {
         Texture2D texture;
         Vector2 pos,speed;
         String asset;
+        int Xmultiplier, Ymultiplier;
+
         public Sprite(Vector2 speed, Vector2 pos,String asset) {
             this.speed=speed;
             this.pos = pos;
             this.asset = asset;
+            this.Xmultiplier = 1;
+            this.Ymultiplier = 1;
         }
 
         public virtual void LoadContent(ContentManager content){
             this.texture = content.Load<Texture2D>(this.asset);
         }
 
-        public virtual void Update() {
-            this.pos += this.speed;
+        public virtual void Update(GraphicsDevice graphics) {
+            this.pos.X += this.speed.X * this.Xmultiplier;
+            this.pos.Y += this.speed.Y * this.Ymultiplier;
+            this.Bounding(graphics);
+        }
+
+        protected virtual void Bounding(GraphicsDevice graphics) {
+            if ((this.pos.X <= 0) || (this.pos.X >= graphics.Viewport.Width-this.texture.Width)) {
+                this.Xmultiplier *= -1;
+            }
+            if ((this.pos.Y <= 0) || (this.pos.Y >= graphics.Viewport.Height-this.texture.Height)) {
+                this.Ymultiplier *= -1;
+            }
         }
         //Flursmynerf
         public virtual void Draw(SpriteBatch spritebatch) {
-            spritebatch.Draw(this.texture, this.pos, Color.Transparent);
+            spritebatch.Draw(this.texture, this.pos, Color.White);
         }
     }
 }
