@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TowerDefenseContent", "Towe
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "OtherStuff", "OtherStuff\OtherStuff.pyproj", "{18E0AE88-B74C-4EA3-9075-8E9A27C7E48D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primitives2D", "Primitives2D\Primitives2D.csproj", "{39AD1482-1881-4852-A05D-DC61B0D3446A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,16 @@ Global
 		{18E0AE88-B74C-4EA3-9075-8E9A27C7E48D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{18E0AE88-B74C-4EA3-9075-8E9A27C7E48D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{18E0AE88-B74C-4EA3-9075-8E9A27C7E48D}.Release|x86.ActiveCfg = Release|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{39AD1482-1881-4852-A05D-DC61B0D3446A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

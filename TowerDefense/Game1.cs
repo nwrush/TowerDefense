@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 using TowerDefense.src;
+using C3.XNA;
 
 namespace TowerDefense {
     public class Game1 : Microsoft.Xna.Framework.Game {
@@ -23,12 +24,14 @@ namespace TowerDefense {
 
         Sprite ex;
         Background back;
+        Grid grid;
         protected override void Initialize() {
             // TODO: Add your initialization logic here
             this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f), "Plain-Bagel");
             this.back = new Background();
             base.Initialize();
-            Console.WriteLine(this.GraphicsDevice.Viewport.Height);
+            //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
+            this.grid = new Grid(GraphicsDevice);
         }
 
         protected override void LoadContent() {
@@ -66,6 +69,7 @@ namespace TowerDefense {
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             this.back.Draw(spriteBatch);
             this.ex.Draw(spriteBatch);
+            Primitives2D.DrawLine(spriteBatch, new Vector2(1.0f, 1.0f), new Vector2(150.0f, 150.0f), Color.Black,2.0f);
             spriteBatch.End();
 
             base.Draw(gameTime);
