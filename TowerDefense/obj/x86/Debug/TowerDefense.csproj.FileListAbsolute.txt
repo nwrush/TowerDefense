@@ -24,3 +24,13 @@ C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\obj\x86\Debug\ResolveA
 C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\obj\x86\Debug\TowerDefense.exe
 C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\obj\x86\Debug\TowerDefense.pdb
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\Content\TowerMap.xnb
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\Content\Plain-Bagel.xnb
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\TowerDefense.exe
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\TowerDefense.pdb
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\C3.XNA.Primitives2D.dll
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\C3.XNA.Primitives2D.pdb
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\TowerDefense.exe
+C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\TowerDefense.pdb

@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\bin\x86\Debug\Content\TowerMap.xnb</Output>
+      <Output>C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\Content\TowerMap.xnb</Output>
       <Time>2013-05-13T07:34:23.0019485-07:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\bin\x86\Debug\Content\Plain-Bagel.xnb</Output>
+      <Output>C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\Content\Plain-Bagel.xnb</Output>
       <Time>2013-05-13T07:46:04.3704875-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -25,10 +25,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefenseContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefenseContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefense\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefenseContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefenseContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
