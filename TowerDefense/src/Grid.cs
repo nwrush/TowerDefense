@@ -10,25 +10,29 @@ using C3.XNA;
 namespace TowerDefense.src {
     class Grid {
         int width, height, rows, columns;
-        List<Tuple<int,int>> PointList;
+        List<Vector2> PointList;
+        List<List<Tuple<Vector2,Vector2>>> GridList;
 
-        public  Grid(GraphicsDevice graphics) {
+        public Grid(GraphicsDevice graphics) {
             this.height = 10;
             this.width = 10;
 
-            this.rows=graphics.Viewport.Width / this.width;
-            this.columns = graphics.Viewport.Height / this.height;
-            this.PointList=new List<Tuple<int,int>>();
+            this.rows = graphics.Viewport.Width / this.width+1;
+            this.columns = graphics.Viewport.Height / this.height+1;
+
+            this.PointList = new List<Vector2>();
+            this.GridList = new List<List<Tuple<Vector2,Vector2>>>();
+
             this.CreatePointList();
-            Console.WriteLine(PointList);
+            Console.WriteLine(PointList[3]);
         }
 
-        private  void CreatePointList() {
-            int xVal=0;
-            int yVal=0;
-            for (int i = 0; i<=rows; i++) {
-                for (int j = 0; j <= columns; j++) {
-                    this.PointList.Add(Tuple.Create(xVal, yVal));
+        private void CreatePointList() {
+            float xVal = 0;
+            float yVal = 0;
+            for (int i = 0; i <= this.rows; i++) {
+                for (int j = 0; j <= this.columns; j++) {
+                    this.PointList.Add(new Vector2(xVal,yVal));
                     xVal += this.width;
                 }
                 yVal += this.height;
@@ -37,8 +41,13 @@ namespace TowerDefense.src {
             Console.Write("");
         }
 
-        public void DrawGrid(SpriteBatch spritebatch) {
+        private void CreateGridList(){
 
+            for (int i = 0; i <= this.rows; i++) {
+                for (int j = 0; j <= this.columns; j++) {
+                    
+                }
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace TowerDefense {
         Grid grid;
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-            this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f), "Plain-Bagel");
+            this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
             this.back = new Background();
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
@@ -37,7 +37,7 @@ namespace TowerDefense {
         protected override void LoadContent() {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.ex.LoadContent(Content);
+            this.ex.LoadContent(Content,"Plain-Bagel");
             this.back.LoadContent(Content, "TowerMap");
             // TODO: use this.Content to load your game content here
             //this.Content
@@ -64,12 +64,11 @@ namespace TowerDefense {
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
-
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            this.back.Draw(spriteBatch);
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            Primitives2D.DrawLine(spriteBatch, new Vector2(1.0f, 1.0f), new Vector2(150.0f, 150.0f), Color.Black, 2.0f);
             this.ex.Draw(spriteBatch);
-            Primitives2D.DrawLine(spriteBatch, new Vector2(1.0f, 1.0f), new Vector2(150.0f, 150.0f), Color.Black,2.0f);
+            this.back.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

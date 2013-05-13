@@ -10,19 +10,17 @@ namespace TowerDefense.src {
     class Sprite {
         Texture2D texture;
         Vector2 pos,speed;
-        String asset;
         int Xmultiplier, Ymultiplier;
 
-        public Sprite(Vector2 speed, Vector2 pos,String asset) {
+        public Sprite(Vector2 speed, Vector2 pos) {
             this.speed=speed;
             this.pos = pos;
-            this.asset = asset;
             this.Xmultiplier = 1;
             this.Ymultiplier = 1;
         }
 
-        public virtual void LoadContent(ContentManager content){
-            this.texture = content.Load<Texture2D>(this.asset);
+        public virtual void LoadContent(ContentManager content,String asset){
+            this.texture = content.Load<Texture2D>(asset);
         }
 
         public virtual void Update(GraphicsDevice graphics) {
