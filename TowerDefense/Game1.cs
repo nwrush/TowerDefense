@@ -65,10 +65,12 @@ namespace TowerDefense {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
-            Primitives2D.DrawLine(spriteBatch, new Vector2(1.0f, 1.0f), new Vector2(150.0f, 150.0f), Color.Black, 2.0f);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+
             this.ex.Draw(spriteBatch);
-            this.back.Draw(spriteBatch);
+            this.grid.DrawGrid(spriteBatch);
+            //this.back.Draw(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);

@@ -31,8 +31,8 @@ namespace TowerDefense.src {
         private void CreatePointList() {
             float xVal = 0;
             float yVal = 0;
-            for (int i = 0; i <= this.rows; i++) {
-                for (int j = 0; j <= this.columns; j++) {
+            for (int i = 0; i < this.rows; i++) {
+                for (int j = 0; j < this.columns; j++) {
                     this.PointList.Add(new Vector2(xVal,yVal));
                     xVal += this.width;
                 }
@@ -47,10 +47,10 @@ namespace TowerDefense.src {
             float yVal = 0;
             List<Vector2> Holder;
 
-            for (int i = 0; i <= this.rows; i++) {
+            for (int i = 0; i < this.rows; i++) {
                 Holder = new List<Vector2>();
 
-                for (int j = 0; j <= this.columns; j++) {
+                for (int j = 0; j < this.columns; j++) {
                     Holder.Add(new Vector2(xVal, yVal));
                     xVal += this.width;
                 }
@@ -58,6 +58,27 @@ namespace TowerDefense.src {
                 yVal += this.height;
                 xVal = 0;
                 this.RowList.Add(Holder);
+            }
+        }
+
+        public void DrawGrid(SpriteBatch spritebatch) {
+            this.DrawVerticle(spritebatch);
+            this.DrawHorizontal(spritebatch);
+        }
+        // Primitives2D.DrawLine(spriteBatch, new Vector2(1.0f, 1.0f), new Vector2(150.0f, 150.0f), Color.Black, 2.0f);
+
+        private void DrawVerticle(SpriteBatch spritebatch) {
+            List<Vector2> TopList,BottomList;
+            TopList=this.RowList[0];
+            BottomList=this.RowList[this.RowList.Count-1];
+            Console.Write("");
+            for (int i = 0; i <= TopList.Count-1; i++) {
+                Primitives2D.DrawLine(spritebatch, TopList[i], BottomList[i], Color.Black, 2.0f);
+            }
+        }
+        private void DrawHorizontal(SpriteBatch spritebatch) {
+            for (int i = 0; i <= this.RowList.Count-1; i++) {
+                Primitives2D.DrawLine(spritebatch, RowList[i][0], RowList[i][RowList[i].Count - 1], Color.Black);
             }
         }
     }
