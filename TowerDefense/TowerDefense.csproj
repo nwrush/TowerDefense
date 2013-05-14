@@ -113,6 +113,7 @@
     <Compile Include="src\Background.cs" />
     <Compile Include="src\Grid.cs" />
     <Compile Include="src\Sprite.cs" />
+    <Compile Include="src\Tower.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

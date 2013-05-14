@@ -18,6 +18,9 @@ namespace TowerDefense.src {
             this.Xmultiplier = 1;
             this.Ymultiplier = 1;
         }
+        public Sprite(Vector2 pos) {
+            this.pos = pos;
+        }
 
         public virtual void LoadContent(ContentManager content,String asset){
             this.texture = content.Load<Texture2D>(asset);

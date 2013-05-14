@@ -14,8 +14,8 @@ namespace TowerDefense.src {
         List<List<Vector2>> RowList;//Holds to the list of the points in each row, each row gets its own list
 
         public Grid(GraphicsDevice graphics) {
-            this.height = 160;
-            this.width = 160;
+            this.height = 40;
+            this.width = 40;
 
             this.columns = graphics.Viewport.Width / this.width+1;
             this.rows = graphics.Viewport.Height / this.height+1;
