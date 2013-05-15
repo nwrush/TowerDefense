@@ -34,3 +34,4 @@ C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\ResolveAsse
 C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\TowerDefense.exe
 C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefense\obj\x86\Debug\TowerDefense.pdb
+C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefense\bin\x86\Debug\Content\TowerSprite.xnb

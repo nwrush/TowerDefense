@@ -65,7 +65,7 @@ namespace TowerDefense {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
             this.ex.Draw(spriteBatch);
             this.grid.DrawGrid(spriteBatch);
