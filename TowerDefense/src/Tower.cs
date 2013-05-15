@@ -14,13 +14,26 @@ namespace TowerDefense.src {
         public Tower(Vector2 pos){
             this.pos = pos;
         }
+
         public void LoadContent(ContentManager content,String asset) {
             this.texture = content.Load<Texture2D>(asset);
         }
-        public void Update(GraphicsDevice graphics) {
+
+        public virtual void Update(GraphicsDevice graphics) {
             
         }
-        public void Draw(SpriteBatch spritebatch) {
+
+        private virtual void LockToGrid(Grid grid) {
+            foreach (Vector2 point in grid.Get_PointList()) {
+
+            }
+        }
+        private float Distance(Vector2 p1, Vector2 p2) {
+            
+            return new float();
+        }
+
+        public virtual void Draw(SpriteBatch spritebatch) {
             spritebatch.Draw(this.texture, this.pos, Color.White);
         }
     }
