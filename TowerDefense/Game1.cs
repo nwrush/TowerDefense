@@ -14,21 +14,25 @@ using C3.XNA;
 
 namespace TowerDefense {
     public class Game1 : Microsoft.Xna.Framework.Game {
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
         }
 
         Sprite ex;
         Background back;
         Grid grid;
+        Tower tower;
         protected override void Initialize() {
             // TODO: Add your initialization logic here
             this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
             this.back = new Background();
+            this.tower = new Tower(new Vector2(50.0f));
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
             this.grid = new Grid(GraphicsDevice);
@@ -39,6 +43,7 @@ namespace TowerDefense {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.ex.LoadContent(Content,"Plain-Bagel");
             this.back.LoadContent(Content, "TowerMap");
+            this.tower.LoadContent(Content, "TowerSprite");
             // TODO: use this.Content to load your game content here
             //this.Content
         }
@@ -50,13 +55,12 @@ namespace TowerDefense {
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime) {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
 
             // TODO: Add your update logic here
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) {
                 Environment.Exit(0);
             }
+
             this.ex.Update(GraphicsDevice);
             base.Update(gameTime);
         }
@@ -69,6 +73,7 @@ namespace TowerDefense {
 
             this.ex.Draw(spriteBatch);
             this.grid.DrawGrid(spriteBatch);
+            this.tower.Draw(spriteBatch);
             //this.back.Draw(spriteBatch);
 
             spriteBatch.End();

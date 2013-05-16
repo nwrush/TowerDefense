@@ -81,5 +81,12 @@ namespace TowerDefense.src {
                 Primitives2D.DrawLine(spritebatch, RowList[i][0], RowList[i][RowList[i].Count - 1], Color.Black);
             }
         }
+
+        public List<Vector2> Get_PointList() {
+            return this.PointList;
+        }
+        public List<List<Vector2>> Get_RowList() {
+            return this.RowList;
+        }
     }
 }
