@@ -28,14 +28,19 @@ namespace TowerDefense {
         Background back;
         Grid grid;
         Tower tower;
+
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-            this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
+            //Level Initalizations
+            this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
-            this.tower = new Tower(new Vector2(50.0f));
+
+            //Sprite  Initialization
+            this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
+            this.tower = new Tower(new Tuple<int,int>(5,5),grid);
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
-            this.grid = new Grid(GraphicsDevice);
+            
         }
 
         protected override void LoadContent() {
@@ -71,7 +76,7 @@ namespace TowerDefense {
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-            this.ex.Draw(spriteBatch);
+            //this.ex.Draw(spriteBatch);
             this.grid.DrawGrid(spriteBatch);
             this.tower.Draw(spriteBatch);
             //this.back.Draw(spriteBatch);

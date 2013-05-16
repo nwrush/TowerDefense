@@ -9,10 +9,20 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     class Tower{
-        Vector2 pos;
+        Vector2 pos;//True position on the screen
+        Tuple<int,int> gridPos;//Position on the game grid
         Texture2D texture;
-        public Tower(Vector2 pos){
-            this.pos = pos;
+        public Tower(Tuple<int,int> pos,Grid grid){
+            this.gridPos = pos;
+            this.pos = new Vector2();
+            LockToGrid(grid);
+        }
+
+        private void LockToGrid(Grid grid) {
+            /*The sprite is positioned with the top left corner of the sprite
+             * touching the grid point that they are placed at */
+            this.pos.X = this.gridPos.Item1 * grid.Get_Width();
+            this.pos.Y = this.gridPos.Item2 * grid.Get_Height();
         }
 
         public void LoadContent(ContentManager content,String asset) {
@@ -20,17 +30,7 @@ namespace TowerDefense.src {
         }
 
         public virtual void Update(GraphicsDevice graphics) {
-            
-        }
 
-        private virtual void LockToGrid(Grid grid) {
-            foreach (Vector2 point in grid.Get_PointList()) {
-
-            }
-        }
-        private float Distance(Vector2 p1, Vector2 p2) {
-            
-            return new float();
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

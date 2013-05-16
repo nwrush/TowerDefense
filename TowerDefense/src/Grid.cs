@@ -88,5 +88,17 @@ namespace TowerDefense.src {
         public List<List<Vector2>> Get_RowList() {
             return this.RowList;
         }
+        public int Get_Width() {
+            return this.width;
+        }
+        public int Get_Height() {
+            return this.height;
+        }
+        public int Get_Rows() {
+            return this.rows;
+        }
+        public int Get_Columns() {
+            return this.columns;
+        }
     }
 }
