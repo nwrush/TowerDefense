@@ -28,23 +28,21 @@ namespace TowerDefense {
         Background back;
         Grid grid;
         Tower tower;
-<<<<<<< HEAD
-
-=======
->>>>>>> HomeBuilds
+        Tower2 tower2;
+        Tower3 tower3;
+        Tower4 tower4;
         protected override void Initialize() {
             // TODO: Add your initialization logic here
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
-<<<<<<< HEAD
 
             //Sprite  Initialization
             this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
-            this.tower = new Tower(new Tuple<int,int>(5,5),grid);
-=======
-            this.tower = new Tower(new Vector2(50.0f));
->>>>>>> HomeBuilds
+            this.tower = new Tower(new Tuple<int,int>(5,5),grid,0.9f);
+            this.tower2 = new Tower2(new Tuple<int, int>(10, 10), grid, 0.9f);
+            this.tower3 = new Tower3(new Tuple<int, int>(4,6), grid,0.9f);
+            this.tower4 = new Tower4(new Tuple<int, int>(9, 7), grid,0.9f);
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
             
@@ -56,6 +54,9 @@ namespace TowerDefense {
             this.ex.LoadContent(Content,"Plain-Bagel");
             this.back.LoadContent(Content, "TowerMap");
             this.tower.LoadContent(Content, "TowerSprite");
+            this.tower2.LoadContent(Content, "Tower2");
+            this.tower3.LoadContent(Content, "Tower3");
+            this.tower4.LoadContent(Content, "Tower4");
             // TODO: use this.Content to load your game content here
             //this.Content
         }
@@ -86,7 +87,10 @@ namespace TowerDefense {
             //this.ex.Draw(spriteBatch);
             this.grid.DrawGrid(spriteBatch);
             this.tower.Draw(spriteBatch);
-            //this.back.Draw(spriteBatch);
+            this.tower2.Draw(spriteBatch);
+            this.tower3.Draw(spriteBatch);
+            this.tower4.Draw(spriteBatch);
+            this.back.Draw(spriteBatch);
 
             spriteBatch.End();
 

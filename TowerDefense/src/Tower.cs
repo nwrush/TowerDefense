@@ -9,49 +9,43 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     class Tower{
+
         Vector2 pos;//True position on the screen
         Tuple<int,int> gridPos;//Position on the game grid
         Texture2D texture;
-        public Tower(Tuple<int,int> pos,Grid grid){
+        Rectangle rect;
+        float layer;
+
+        public Tower(Tuple<int,int> pos,Grid grid,float layer){
             this.gridPos = pos;
             this.pos = new Vector2();
             LockToGrid(grid);
+            Console.WriteLine(this.pos);
+            this.layer = layer;
         }
-
-<<<<<<< HEAD
-        private void LockToGrid(Grid grid) {
+        protected void LockToGrid(Grid grid) {
             /*The sprite is positioned with the top left corner of the sprite
              * touching the grid point that they are placed at */
-            this.pos.X = this.gridPos.Item1 * grid.Get_Width();
-            this.pos.Y = this.gridPos.Item2 * grid.Get_Height();
+            this.pos.X = this.gridPos.Item1 * grid.width; ;
+            this.pos.Y = this.gridPos.Item2 * grid.height;
         }
 
-=======
->>>>>>> HomeBuilds
+
         public void LoadContent(ContentManager content,String asset) {
             this.texture = content.Load<Texture2D>(asset);
+            this.GetRect();
+        }
+        protected void GetRect() {
+            this.rect=new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
         }
 
         public virtual void Update(GraphicsDevice graphics) {
-<<<<<<< HEAD
-
-=======
-            
-        }
-
-        private virtual void LockToGrid(Grid grid) {
-            foreach (Vector2 point in grid.Get_PointList()) {
-
-            }
-        }
-        private float Distance(Vector2 p1, Vector2 p2) {
-            
-            return new float();
->>>>>>> HomeBuilds
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {
-            spritebatch.Draw(this.texture, this.pos, Color.White);
+            //spritebatch.Draw(this.texture, this.pos, Color.White);
+            Rectangle rect = new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
+            spritebatch.Draw(this.texture,rect, null, Color.White, 0.0f, new Vector2(0.0f), SpriteEffects.None, 0.10f);
         }
     }
 }

@@ -9,7 +9,7 @@ using C3.XNA;
 
 namespace TowerDefense.src {
     class Grid {
-        int width, height, rows, columns;
+        public int width, height, rows, columns;
         List<Vector2> PointList;
         List<List<Vector2>> RowList;//Holds to the list of the points in each row, each row gets its own list
 
@@ -88,20 +88,5 @@ namespace TowerDefense.src {
         public List<List<Vector2>> Get_RowList() {
             return this.RowList;
         }
-<<<<<<< HEAD
-        public int Get_Width() {
-            return this.width;
-        }
-        public int Get_Height() {
-            return this.height;
-        }
-        public int Get_Rows() {
-            return this.rows;
-        }
-        public int Get_Columns() {
-            return this.columns;
-        }
-=======
->>>>>>> HomeBuilds
     }
 }
