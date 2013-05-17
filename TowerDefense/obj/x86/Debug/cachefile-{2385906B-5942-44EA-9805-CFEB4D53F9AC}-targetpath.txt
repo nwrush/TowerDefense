@@ -1,3 +1,0 @@
-Content\TowerMap.xnb
-Content\Plain-Bagel.xnb
-Content\TowerSprite.xnb

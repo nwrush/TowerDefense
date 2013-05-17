@@ -18,6 +18,7 @@ namespace TowerDefense.src {
             LockToGrid(grid);
         }
 
+<<<<<<< HEAD
         private void LockToGrid(Grid grid) {
             /*The sprite is positioned with the top left corner of the sprite
              * touching the grid point that they are placed at */
@@ -25,12 +26,28 @@ namespace TowerDefense.src {
             this.pos.Y = this.gridPos.Item2 * grid.Get_Height();
         }
 
+=======
+>>>>>>> HomeBuilds
         public void LoadContent(ContentManager content,String asset) {
             this.texture = content.Load<Texture2D>(asset);
         }
 
         public virtual void Update(GraphicsDevice graphics) {
+<<<<<<< HEAD
 
+=======
+            
+        }
+
+        private virtual void LockToGrid(Grid grid) {
+            foreach (Vector2 point in grid.Get_PointList()) {
+
+            }
+        }
+        private float Distance(Vector2 p1, Vector2 p2) {
+            
+            return new float();
+>>>>>>> HomeBuilds
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

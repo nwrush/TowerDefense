@@ -88,6 +88,7 @@ namespace TowerDefense.src {
         public List<List<Vector2>> Get_RowList() {
             return this.RowList;
         }
+<<<<<<< HEAD
         public int Get_Width() {
             return this.width;
         }
@@ -100,5 +101,7 @@ namespace TowerDefense.src {
         public int Get_Columns() {
             return this.columns;
         }
+=======
+>>>>>>> HomeBuilds
     }
 }

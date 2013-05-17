@@ -28,16 +28,23 @@ namespace TowerDefense {
         Background back;
         Grid grid;
         Tower tower;
+<<<<<<< HEAD
 
+=======
+>>>>>>> HomeBuilds
         protected override void Initialize() {
             // TODO: Add your initialization logic here
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
+<<<<<<< HEAD
 
             //Sprite  Initialization
             this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
             this.tower = new Tower(new Tuple<int,int>(5,5),grid);
+=======
+            this.tower = new Tower(new Vector2(50.0f));
+>>>>>>> HomeBuilds
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
             

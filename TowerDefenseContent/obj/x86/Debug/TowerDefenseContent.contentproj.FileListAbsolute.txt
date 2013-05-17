@@ -1,4 +1,3 @@
 c:\users\nikko\documents\visual studio 2010\Projects\TowerDefense\TowerDefense\TowerDefenseContent\obj\x86\Debug\TowerDefenseContent.contentprojResolveAssemblyReference.cache
-C:\Users\Nikko\Documents\Dev\C#\TowerDefense\TowerDefenseContent\obj\x86\Debug\TowerDefenseContent.contentprojResolveAssemblyReference.cache
 C:\Users\s-nrush\Desktop\TowerDefense-master\TowerDefenseContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\s-nrush\Desktop\Dev\TowerDefense\TowerDefenseContent\obj\x86\Debug\ResolveAssemblyReference.cache
