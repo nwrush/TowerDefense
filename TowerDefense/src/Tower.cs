@@ -12,11 +12,13 @@ namespace TowerDefense.src {
 
         Vector2 pos;//True position on the screen
         Vector2 gridPos;//Position on the game grid
-        Texture2D texture;
-        Rectangle rect;
-        float layer;
-        int cost;
-        int angle;
+        Texture2D texture;//Sprite texture
+        Rectangle rect;//Rectangle used to draw the sprite
+        float layer;//Layer between 1.0(back) and 0.0(front) used to determine where the sprite is drawn
+        public int cost;//Cost of the tower
+        int angle;//Angle the tower is pointing
+
+        protected String asset;//Name of the tower to use
 
         public Tower(Vector2 pos,Grid grid,float layer){
             this.gridPos = pos;
@@ -24,6 +26,9 @@ namespace TowerDefense.src {
             LockToGrid(grid);
             this.layer = layer;
             this.angle = 0;
+            this.asset = "Tower1";
+
+            GV.AddTower(this);
         }
         protected void LockToGrid(Grid grid) {
             /*The sprite is positioned with the top left corner of the sprite
@@ -33,8 +38,8 @@ namespace TowerDefense.src {
         }
 
 
-        public void LoadContent(ContentManager content,String asset) {
-            this.texture = content.Load<Texture2D>(asset);
+        public void LoadContent(ContentManager content) {
+            this.texture = content.Load<Texture2D>(this.asset);
             this.GetRect();
         }
         protected void GetRect() {
@@ -42,6 +47,9 @@ namespace TowerDefense.src {
         }
 
         public virtual void Update(GraphicsDevice graphics) {
+        }
+        protected virtual void TrackTarget() {
+
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

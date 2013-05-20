@@ -8,6 +8,7 @@ namespace TowerDefense.src {
     class Tower4 : Tower {
         public Tower4(Vector2 gridPos, Grid grid,float layer)
             : base(gridPos, grid,layer) {
+                this.asset = "Tower4";
         }
     }
 }

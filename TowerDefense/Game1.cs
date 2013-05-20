@@ -43,7 +43,7 @@ namespace TowerDefense {
             this.tower3 = new Tower3(new Vector2(4, 6), grid, 0.9f);
             this.tower4 = new Tower4(new Vector2(9, 7), grid, 0.9f);
 
-            this.ex = new Enemy(new Vector2(3, 6), grid, 0.9f,new Vector2(5.0f));
+            this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f,new Vector2(2.5f));
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
             
@@ -55,12 +55,12 @@ namespace TowerDefense {
 
             this.back.LoadContent(Content, "TowerMap");
 
-            this.tower.LoadContent(Content, "Tower1");
-            this.tower2.LoadContent(Content, "Tower2");
-            this.tower3.LoadContent(Content, "Tower3");
-            this.tower4.LoadContent(Content, "Tower4");
-
-            this.ex.LoadContent(Content, "Plain-Bagel");
+            foreach (Tower t in GV.TowerList) {//Load the textures for towers
+                t.LoadContent(Content);
+            }
+            foreach (Enemy e in GV.EnemyList) {//Load the textures for enemies
+                e.LoadContent(Content);
+            }
             // TODO: use this.Content to load your game content here
             //this.Content
         }
@@ -81,21 +81,24 @@ namespace TowerDefense {
         }
 
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// Sprites position is given using the top-left corner
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-            //this.grid.DrawGrid(spriteBatch);
+            //Draw the grid onto the screen, gird shouldn't be visible in the final version
+            this.grid.DrawGrid(spriteBatch);
 
-            this.tower.Draw(spriteBatch);
-            this.tower2.Draw(spriteBatch);
-            this.tower3.Draw(spriteBatch);
-            this.tower4.Draw(spriteBatch);
+            foreach (Tower t in GV.TowerList) {//Draw the towers on the screen
+                t.Draw(spriteBatch);
+            }
+            foreach (Enemy e in GV.EnemyList) {//Draw the enemies on the screen
+                e.Draw(spriteBatch);
+            }
 
-            this.back.Draw(spriteBatch);
-
-            this.ex.Draw(spriteBatch);
+            //Draw the background
+            //this.back.Draw(spriteBatch);
 
             spriteBatch.End();
 
