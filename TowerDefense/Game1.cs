@@ -21,16 +21,16 @@ namespace TowerDefense {
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
         }
 
-        Sprite ex;
         Background back;
         Grid grid;
         Tower tower;
         Tower2 tower2;
         Tower3 tower3;
         Tower4 tower4;
+
+        Enemy ex;
         protected override void Initialize() {
             // TODO: Add your initialization logic here
             //Level Initalizations
@@ -38,11 +38,12 @@ namespace TowerDefense {
             this.back = new Background();
 
             //Sprite  Initialization
-            this.ex = new Sprite(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
-            this.tower = new Tower(new Tuple<int,int>(5,5),grid,0.9f);
-            this.tower2 = new Tower2(new Tuple<int, int>(10, 10), grid, 0.9f);
-            this.tower3 = new Tower3(new Tuple<int, int>(4,6), grid,0.9f);
-            this.tower4 = new Tower4(new Tuple<int, int>(9, 7), grid,0.9f);
+            this.tower = new Tower(new Vector2(5, 5), grid, 0.9f);
+            this.tower2 = new Tower2(new Vector2(10, 10), grid, 0.9f);
+            this.tower3 = new Tower3(new Vector2(4, 6), grid, 0.9f);
+            this.tower4 = new Tower4(new Vector2(9, 7), grid, 0.9f);
+
+            this.ex = new Enemy(new Vector2(3, 6), grid, 0.9f,new Vector2(5.0f));
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
             
@@ -51,12 +52,15 @@ namespace TowerDefense {
         protected override void LoadContent() {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.ex.LoadContent(Content,"Plain-Bagel");
+
             this.back.LoadContent(Content, "TowerMap");
-            this.tower.LoadContent(Content, "TowerSprite");
+
+            this.tower.LoadContent(Content, "Tower1");
             this.tower2.LoadContent(Content, "Tower2");
             this.tower3.LoadContent(Content, "Tower3");
             this.tower4.LoadContent(Content, "Tower4");
+
+            this.ex.LoadContent(Content, "Plain-Bagel");
             // TODO: use this.Content to load your game content here
             //this.Content
         }
@@ -69,11 +73,9 @@ namespace TowerDefense {
         protected override void Update(GameTime gameTime) {
             // Allows the game to exit
 
-            // TODO: Add your update logic here
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) {
+            if ((Keyboard.GetState().IsKeyDown(Keys.Escape))||(Keyboard.GetState().IsKeyDown(Keys.Q))) {
                 Environment.Exit(0);
             }
-
             this.ex.Update(GraphicsDevice);
             base.Update(gameTime);
         }
@@ -81,16 +83,19 @@ namespace TowerDefense {
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
-            // TODO: Add your drawing code here
+
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-            //this.ex.Draw(spriteBatch);
-            this.grid.DrawGrid(spriteBatch);
+            //this.grid.DrawGrid(spriteBatch);
+
             this.tower.Draw(spriteBatch);
             this.tower2.Draw(spriteBatch);
             this.tower3.Draw(spriteBatch);
             this.tower4.Draw(spriteBatch);
+
             this.back.Draw(spriteBatch);
+
+            this.ex.Draw(spriteBatch);
 
             spriteBatch.End();
 
