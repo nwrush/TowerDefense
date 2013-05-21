@@ -21,6 +21,8 @@ namespace TowerDefense.src {
         float Scale;
         protected string asset;
 
+        public Vector2 CenterPos;
+
 
         public Enemy(Vector2 gridPos, Grid grid, float Layer) {
             this.gridPos = gridPos;
@@ -55,15 +57,23 @@ namespace TowerDefense.src {
         public void LoadContent(ContentManager content){
             this.texture=content.Load<Texture2D>(this.asset);
             this.getRect();
+            this.SetCenter();
         }
         protected void getRect(){
             this.rect=new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
+        }
+
+        protected void SetCenter() {
+            this.CenterPos.X = (this.texture.Width / 2)+this.pos.X;
+            this.CenterPos.Y = (this.texture.Height / 2)+this.pos.Y;
         }
 
         public void Update(GraphicsDevice graphics) {
             this.pos.X += this.speed.X * this.Xmultiplier;
             this.pos.Y += this.speed.Y * this.Ymultiplier;
             this.Bounding(graphics);
+            this.SetCenter();
+            Console.Write("");
         }
         protected void Bounding(GraphicsDevice graphics) {
             if ((this.pos.X <= 0) || (this.pos.X >= graphics.Viewport.Width - this.texture.Width*this.Scale)) {

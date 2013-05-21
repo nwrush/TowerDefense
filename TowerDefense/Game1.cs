@@ -37,13 +37,14 @@ namespace TowerDefense {
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
 
+            this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f, new Vector2(2.5f));
+
             //Sprite  Initialization
             this.tower = new Tower(new Vector2(5, 5), grid, 0.9f);
             this.tower2 = new Tower2(new Vector2(10, 10), grid, 0.9f);
             this.tower3 = new Tower3(new Vector2(4, 6), grid, 0.9f);
             this.tower4 = new Tower4(new Vector2(9, 7), grid, 0.9f);
 
-            this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f,new Vector2(2.5f));
             base.Initialize();
             //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
             
@@ -77,6 +78,9 @@ namespace TowerDefense {
                 Environment.Exit(0);
             }
             this.ex.Update(GraphicsDevice);
+            foreach (Tower t in GV.TowerList) {
+                t.Update(GraphicsDevice);
+            }
             base.Update(gameTime);
         }
 

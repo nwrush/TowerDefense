@@ -15,5 +15,11 @@ namespace TowerDefense {
         public static void AddEnemy(Enemy e) {
             EnemyList.Add(e);
         }
+
+        public static double GetAngle(Tower t, Enemy e) {
+            float Xdist = t.CenterPos.X - e.CenterPos.X;
+            float Ydist = t.CenterPos.Y - e.CenterPos.Y;
+            return Math.Atan(Ydist / Xdist);
+        }
     }
 }

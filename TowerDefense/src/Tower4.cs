@@ -10,5 +10,9 @@ namespace TowerDefense.src {
             : base(gridPos, grid,layer) {
                 this.asset = "Tower4";
         }
+        public override void Update(Microsoft.Xna.Framework.Graphics.GraphicsDevice graphics) {
+            base.Update(graphics);
+            this.TrackTarget();
+        }
     }
 }
