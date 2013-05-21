@@ -25,7 +25,8 @@ namespace TowerDefense {
 
         Background back;
         Grid grid;
-        Tower tower;
+
+        Tower1 tower1;
         Tower2 tower2;
         Tower3 tower3;
         Tower4 tower4;
@@ -40,14 +41,13 @@ namespace TowerDefense {
             this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f, new Vector2(2.5f));
 
             //Sprite  Initialization
-            this.tower = new Tower(new Vector2(5, 5), grid, 0.9f);
+            this.tower1 = new Tower1(new Vector2(5, 5), grid, 0.9f);
             this.tower2 = new Tower2(new Vector2(10, 10), grid, 0.9f);
             this.tower3 = new Tower3(new Vector2(4, 6), grid, 0.9f);
             this.tower4 = new Tower4(new Vector2(9, 7), grid, 0.9f);
 
             base.Initialize();
-            //Console.WriteLine(this.GraphicsDevice.Viewport.Width+" "+this.GraphicsDevice.Viewport.Height);//screen size is (800,480) default
-            
+            //screen size is (800,480) default
         }
 
         protected override void LoadContent() {
@@ -77,9 +77,12 @@ namespace TowerDefense {
             if ((Keyboard.GetState().IsKeyDown(Keys.Escape))||(Keyboard.GetState().IsKeyDown(Keys.Q))) {
                 Environment.Exit(0);
             }
-            this.ex.Update(GraphicsDevice);
+
             foreach (Tower t in GV.TowerList) {
                 t.Update(GraphicsDevice);
+            }
+            foreach (Enemy e in GV.EnemyList) {
+                e.Update(GraphicsDevice);
             }
             base.Update(gameTime);
         }

@@ -9,6 +9,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     class Tower{
+        /*
+         * Base class for all towers in the game
+         * Handles LoadContent, Draw, most of the constructor, and some of the update function
+         */
 
         Vector2 pos;//True position on the screen
         Vector2 gridPos;//Position on the game grid
@@ -31,12 +35,8 @@ namespace TowerDefense.src {
             LockToGrid(grid);
             this.layer = layer;
             this.angle = 0;
-            this.asset = "Tower1";
 
             GV.AddTower(this);
-            
-            //DEBUG STATEMENTS
-            this.target = GV.EnemyList[0];//Because we know the bagel is the first and only sprite in the Enemy list right now, we can do this
         }
         protected void LockToGrid(Grid grid) {
             /*The sprite is positioned with the top left corner of the sprite
@@ -47,26 +47,41 @@ namespace TowerDefense.src {
         
         public void LoadContent(ContentManager content) {
             this.texture = content.Load<Texture2D>(this.asset);
-            this.GetRect();
             this.SetCenter();
+            this.GetRect();
         }
         protected void GetRect() {
-            this.rect=new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
+            this.rect=new Rectangle((int)(this.CenterPos.X), (int)(this.CenterPos.Y), this.texture.Width, this.texture.Height);
         }
         protected void SetCenter() {
-            this.CenterPos.X = (this.texture.Width / 2);
-            this.CenterPos.Y = (this.texture.Height / 2);
+            //The center of the sprite is position of the sprite plus the texture dimensions/2
+            //This value is used in the draw so that the sprite is drawn correctly in it's grid square
+            this.CenterPos.X = (this.texture.Width / 2)+this.pos.X;
+            this.CenterPos.Y = (this.texture.Height / 2)+this.pos.Y;
         }
 
         public virtual void Update(GraphicsDevice graphics) {
+            //Exit the game if the tower is outside of the screen
+            if ((this.pos.X < 0) || (this.pos.X > graphics.Viewport.Width)) {
+                Environment.Exit(-1);
+            }
+            if ((this.pos.Y < 0) || (this.pos.Y > graphics.Viewport.Height)) {
+                Environment.Exit(-1);
+            }
         }
         protected virtual void TrackTarget() {
+            //Gets the angle the tower needs to point at to be facing the target
             this.angle = GV.GetAngle(this, this.target);
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {
-            //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
-            spritebatch.Draw(this.texture,this.rect, null, Color.White, (float)this.angle, new Vector2(0.0f), SpriteEffects.None, this.layer);
+            //Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, SpriteEffects effects, float layerDepth);
+            spritebatch.Draw(this.texture, this.rect, null, Color.White, (float)this.angle/*Rotation*/, new Vector2(this.texture.Width/2,this.texture.Height/2), SpriteEffects.None, this.layer);
         }
+
+        //public string asset {
+        //    get { return this.asset; }
+        //}
+           
     }
 }
