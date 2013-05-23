@@ -18,14 +18,14 @@ namespace TowerDefense.src {
         Vector2 gridPos;//Position on the game grid
 
         Texture2D texture;//Sprite texture
-        protected String asset;//Asset name of the texture to use
+        public String asset;//Asset name of the texture to use  make protected after testing
         Rectangle rect;//Rectangle used to draw the sprite
         float layer;//Layer between 1.0(back) and 0.0(front) used to determine where the sprite is drawn
 
         public int cost;//Cost of the tower
         double angle;//Angle the tower is pointings
 
-        Enemy target;//Current target the tower is aiming for
+        protected Enemy target;//Current target the tower is aiming for
 
         public Vector2 CenterPos;
 
@@ -78,10 +78,5 @@ namespace TowerDefense.src {
             //Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, SpriteEffects effects, float layerDepth);
             spritebatch.Draw(this.texture, this.rect, null, Color.White, (float)this.angle/*Rotation*/, new Vector2(this.texture.Width/2,this.texture.Height/2), SpriteEffects.None, this.layer);
         }
-
-        //public string asset {
-        //    get { return this.asset; }
-        //}
-           
     }
 }

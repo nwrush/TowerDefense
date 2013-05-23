@@ -9,8 +9,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     class Tower1:Tower{
-        Enemy target;
-        public Tower1(Vector2 pos, Grid grid, float layer):base(pos,grid,layer) {
+        public Tower1(Vector2 pos, Grid grid, float layer)
+            :base(pos,grid,layer) {
             this.asset = "Tower1";
 
             //DEBUG STATEMENTS

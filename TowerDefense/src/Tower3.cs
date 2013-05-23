@@ -8,7 +8,8 @@ namespace TowerDefense.src {
     class Tower3 : Tower {
         public Tower3(Vector2 gridPos, Grid grid,float layer)
             : base(gridPos, grid,layer) {
-                this.asset = "Tower3";
+            this.asset = "Tower3";
+            this.target = GV.EnemyList[0];//Tower target
         }
     }
 }
