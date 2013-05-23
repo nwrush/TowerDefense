@@ -10,6 +10,8 @@ namespace TowerDefense.src {
             : base(gridPos, grid,layer) {
             this.asset = "Tower3";
             this.target = GV.EnemyList[0];//Tower target
+            this.damage = 25;
+            this.cost = 125;
         }
     }
 }

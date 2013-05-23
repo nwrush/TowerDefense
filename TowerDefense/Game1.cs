@@ -83,6 +83,7 @@ namespace TowerDefense {
                 e.Update(GraphicsDevice);
             }
             base.Update(gameTime);
+            Console.WriteLine(gameTime.ElapsedGameTime);
         }
 
         /// <param name="gameTime">Provides a snapshot of timing values.</param>

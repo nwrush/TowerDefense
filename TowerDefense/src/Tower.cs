@@ -25,6 +25,8 @@ namespace TowerDefense.src {
         public int cost;//Cost of the tower
         double angle;//Angle the tower is pointings
 
+        protected double damage;
+
         protected Enemy target;//Current target the tower is aiming for
 
         public Vector2 CenterPos;
@@ -72,6 +74,9 @@ namespace TowerDefense.src {
         protected virtual void TrackTarget() {
             //Gets the angle the tower needs to point at to be facing the target
             this.angle = GV.GetAngle(this, this.target);
+        }
+        protected virtual void Fire(GameTime gametime) {
+            //SpriteBatch.Draw
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

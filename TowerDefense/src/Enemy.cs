@@ -17,19 +17,14 @@ namespace TowerDefense.src {
         Grid grid;
 
         float layer;
-        Rectangle rect;
+        public Rectangle rect;
         float Scale;
         protected string asset;
 
         public Vector2 CenterPos;
 
-
-        public Enemy(Vector2 gridPos, Grid grid, float Layer) {
-            this.gridPos = gridPos;
-            this.grid = grid;
-            //this.LockToGrid();
-            this.layer = Layer;
-        }
+        public double Health;
+        bool dead=false;
 
         public Enemy(Vector2 gridPos, Grid grid, float Layer, Vector2 speed) {
             this.gridPos = gridPos;
@@ -44,6 +39,8 @@ namespace TowerDefense.src {
 
             this.asset = "Plain-Bagel";
 
+            this.Health = 150;
+
             GV.AddEnemy(this);
         }
 
@@ -56,11 +53,8 @@ namespace TowerDefense.src {
 
         public void LoadContent(ContentManager content){
             this.texture=content.Load<Texture2D>(this.asset);
-            this.getRect();
+            this.rect = new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
             this.SetCenter();
-        }
-        protected void getRect(){
-            this.rect=new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
         }
 
         protected void SetCenter() {
@@ -73,7 +67,7 @@ namespace TowerDefense.src {
             this.pos.Y += this.speed.Y * this.Ymultiplier;
             this.Bounding(graphics);
             this.SetCenter();
-            Console.Write("");
+            this.isDead();
         }
         protected void Bounding(GraphicsDevice graphics) {
             if ((this.pos.X <= 0) || (this.pos.X >= graphics.Viewport.Width - this.texture.Width*this.Scale)) {
@@ -83,10 +77,17 @@ namespace TowerDefense.src {
                 this.Ymultiplier *= -1;
             }
         }
+        protected void isDead() {
+            if (this.Health <= 0) {
+                this.dead = true;
+            }
+        }
 
         public virtual void Draw(SpriteBatch spritebatch) {
-            //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
-            spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None, 0.5f);
+            if (!this.dead) {
+                //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
+                spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None, 0.5f);
+            }
         }
     }
 }

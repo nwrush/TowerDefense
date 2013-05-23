@@ -115,6 +115,7 @@
     <Compile Include="src\Enemy.cs" />
     <Compile Include="src\Grid.cs" />
     <Compile Include="src\Player.cs" />
+    <Compile Include="src\Projectile.cs" />
     <Compile Include="src\Sprite.cs" />
     <Compile Include="src\Tower.cs" />
     <Compile Include="src\Tower1.cs" />
