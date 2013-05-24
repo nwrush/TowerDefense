@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     static class Player {
@@ -21,12 +22,16 @@ namespace TowerDefense.src {
             }
         }
         public static void LoadContent(ContentManager content){
-            font = content.Load<SpriteFont>("SpriteFont1");
+            font = content.Load<SpriteFont>("font");
+        }
+        public static void Update() {
+            KeyboardState keyboardState = Keyboard.GetState();
+
         }
         public static void Draw(SpriteBatch spritebatch) {
-            spritebatch.DrawString(font, "This is not a string", new Vector2(0f, 0f), Color.White);
-            spritebatch.DrawString(font, Health.ToString(), new Vector2(400, 400), Color.White);
-            spritebatch.DrawString(font, Money.ToString(), new Vector2(600, 400), Color.White);
+            spritebatch.DrawString(font, "Score: "+Score.ToString(), new Vector2(150, 450), Color.Black,0.0f,new Vector2(),1.0f,SpriteEffects.None,0.1f);
+            spritebatch.DrawString(font, "Health: "+Health.ToString(), new Vector2(350, 450), Color.Black,0.0f,new Vector2(),1.0f,SpriteEffects.None,0.1f);
+            spritebatch.DrawString(font, "Money: "+Money.ToString(), new Vector2(550, 450), Color.Black,0.0f,new Vector2(),1.0f,SpriteEffects.None,0.1f);
         }
     }
 }

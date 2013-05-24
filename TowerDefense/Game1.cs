@@ -21,7 +21,6 @@ namespace TowerDefense {
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            int x=0;
         }
 
         Background back;
@@ -89,6 +88,11 @@ namespace TowerDefense {
             foreach (Enemy e in GV.EnemyList) {
                 e.Update(GraphicsDevice);
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.Space)) {
+                foreach (Tower t in GV.TowerList) {
+                    t.Fire(gameTime);
+                }
+            }
             base.Update(gameTime);
         }
 
@@ -112,8 +116,7 @@ namespace TowerDefense {
             }
             Player.Draw(spriteBatch);
             //Draw the background
-            //this.back.Draw(spriteBatch);
-
+            this.back.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

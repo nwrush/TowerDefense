@@ -75,8 +75,8 @@ namespace TowerDefense.src {
             //Gets the angle the tower needs to point at to be facing the target
             this.angle = GV.GetAngle(this, this.target);
         }
-        protected virtual void Fire(GameTime gametime) {
-            new Projectile(this.pos, this.target, this.damage, this.angle);
+        public virtual void Fire(GameTime gametime) {
+            new Projectile(this.CenterPos, this.target, this.damage, this.angle);
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {
