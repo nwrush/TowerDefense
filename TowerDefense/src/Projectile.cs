@@ -8,25 +8,33 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TowerDefense.src {
     class Projectile {
-        Texture2D texture;
+        static Texture2D texture;
         Vector2 speed;
         Vector2 pos;
         Enemy e;
         Rectangle boundingBox;
+        double angle;
         double damage;
-        bool draw = true;
 
-        public Projectile(Vector2 pos,Enemy e,double damage) {
+        bool draw = true;
+        bool loaded = false;
+
+        public Projectile(Vector2 pos,Enemy e,double damage,double angle) {
             this.pos = pos;
             this.speed = new Vector2(5.0f);
             this.e = e;
+            this.angle = angle;
             this.damage = damage;
+
+            this.LoadContent(GV.content);
+
+            GV.AddProjectile(this);
         }
 
-        public void LoadContent(ContentManager content, string asset) {
-            this.texture = content.Load<Texture2D>(asset);
+        public void LoadContent(ContentManager content) {
+            texture = content.Load<Texture2D>("Projectile");
             //Get the bounding box for the sprite texture
-            this.boundingBox = new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
+            this.boundingBox = new Rectangle((int)this.pos.X, (int)this.pos.Y, texture.Width, texture.Height);
         }
         public void Update() {
             this.pos += this.speed;
@@ -45,8 +53,8 @@ namespace TowerDefense.src {
         }
 
         public void Draw(SpriteBatch spritebatch) {
-            if (this.draw) {//If the sprite is "dead" then don't draw it
-                spritebatch.Draw(this.texture, this.boundingBox, Color.White);
+            if (this.draw) {//If the sprite is "dead" then don't draw it//                 //Draw the sprite with the origin at the center, for the rotate
+                spritebatch.Draw(texture, this.boundingBox, null,Color.White,(float)this.angle,new Vector2(texture.Width/2f,texture.Height/2f),SpriteEffects.None,0.1f);
             }
         }
     }

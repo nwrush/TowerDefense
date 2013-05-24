@@ -76,7 +76,7 @@ namespace TowerDefense.src {
             this.angle = GV.GetAngle(this, this.target);
         }
         protected virtual void Fire(GameTime gametime) {
-            //SpriteBatch.Draw
+            new Projectile(this.pos, this.target, this.damage, this.angle);
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

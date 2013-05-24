@@ -21,6 +21,7 @@ namespace TowerDefense {
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            int x=0;
         }
 
         Background back;
@@ -34,6 +35,7 @@ namespace TowerDefense {
         Enemy ex;
         protected override void Initialize() {
             // TODO: Add your initialization logic here
+            GV.content = Content;
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
@@ -55,13 +57,14 @@ namespace TowerDefense {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             this.back.LoadContent(Content, "TowerMap");
-
+            //projectile content is loaded asynchronously when the projectile is initialized
             foreach (Tower t in GV.TowerList) {//Load the textures for towers
                 t.LoadContent(Content);
             }
             foreach (Enemy e in GV.EnemyList) {//Load the textures for enemies
                 e.LoadContent(Content);
             }
+            Player.LoadContent(Content);
             // TODO: use this.Content to load your game content here
             //this.Content
         }
@@ -76,6 +79,10 @@ namespace TowerDefense {
             if ((Keyboard.GetState().IsKeyDown(Keys.Escape))||(Keyboard.GetState().IsKeyDown(Keys.Q))) {
                 Environment.Exit(0);
             }
+
+            foreach (Projectile p in GV.ProjectileList) {
+                p.Update();
+            }
             foreach (Tower t in GV.TowerList) {
                 t.Update(GraphicsDevice);
             }
@@ -83,7 +90,6 @@ namespace TowerDefense {
                 e.Update(GraphicsDevice);
             }
             base.Update(gameTime);
-            Console.WriteLine(gameTime.ElapsedGameTime);
         }
 
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
@@ -94,15 +100,17 @@ namespace TowerDefense {
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
             //Draw the grid onto the screen, gird shouldn't be visible in the final version
-            this.grid.DrawGrid(spriteBatch);
-
+            //this.grid.DrawGrid(spriteBatch);
+            foreach (Projectile p in GV.ProjectileList) {//Draw the projectiles on the screen
+                p.Draw(spriteBatch);
+            }
             foreach (Tower t in GV.TowerList) {//Draw the towers on the screen
                 t.Draw(spriteBatch);
             }
             foreach (Enemy e in GV.EnemyList) {//Draw the enemies on the screen
                 e.Draw(spriteBatch);
             }
-
+            Player.Draw(spriteBatch);
             //Draw the background
             //this.back.Draw(spriteBatch);
 
