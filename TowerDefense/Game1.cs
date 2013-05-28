@@ -33,6 +33,7 @@ namespace TowerDefense {
 
         Enemy ex;
         protected override void Initialize() {
+            this.IsMouseVisible = true;
             // TODO: Add your initialization logic here
             GV.content = Content;
             //Level Initalizations

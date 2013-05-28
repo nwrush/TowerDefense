@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace SharpGLass {
-    public abstract class Input {
+    public partial class Input {
 
         public enum KeyState {
             None,
@@ -17,7 +17,6 @@ namespace SharpGLass {
         }
 
         private static Dictionary<Keys, KeyState> KeyboardState = new Dictionary<Keys, KeyState>();
-        //private static Dictionary<MouseButton, KeyState> MouseState = new Dictionary<MouseButton, KeyState>();
 
         public static Point MousePosition;
 
@@ -25,10 +24,6 @@ namespace SharpGLass {
             get { return KeyboardState; }
             private set { KeyboardState = value; }
         }
-        //public static Dictionary<MouseButton, KeyState> MouseTable {
-        //    get { return MouseState; }
-        //    private set { MouseState = value; }
-        //}
 
         public static void Update() {
 
@@ -68,34 +63,6 @@ namespace SharpGLass {
             }
             else { KeyTable[k] = state; }
         }
-
-        //public static void SetMouseButton(MouseButton m, KeyState state) {
-        //    if (MouseTable.ContainsKey(m) == false) {
-        //        MouseTable.Add(m, state);
-        //    }
-        //    else { MouseTable[m] = state; }
-        //}
-        //public static KeyState GetMouseButton(MouseButton m) {
-        //    KeyState pressed = KeyState.Pressed;
-        //    KeyState down = KeyState.Down;
-        //    KeyState released = KeyState.Released;
-
-        //    if (MouseTable.TryGetValue(m, out pressed)) {
-        //        return pressed;
-        //    }
-        //    else if (MouseTable.TryGetValue(m, out down)) {
-        //        return down;
-        //    }
-        //    else if (MouseTable.TryGetValue(m, out released)) {
-        //        return released;
-        //    }
-
-        //    return KeyState.None;
-        //}
-
-        //public static bool IsMouseClicked() {
-        //    return (GetMouseButton(MouseButton.Left) == KeyState.Down || GetMouseButton(MouseButton.Left) == KeyState.Pressed);
-        //}
 
         //Personally added functions
         public static bool IsKeyDown(Keys key) {
