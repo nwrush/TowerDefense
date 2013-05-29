@@ -29,7 +29,7 @@ namespace TowerDefense.src {
 
             this.LoadContent(GV.content);
 
-            GV.AddProjectile(this);
+            GV.ProjectileList.Add(this);
         }
 
         public void LoadContent(ContentManager content) {

@@ -12,20 +12,12 @@ namespace TowerDefense {
         public static List<Projectile> ProjectileList = new List<Projectile>();
 
         public static ContentManager content;
+        public static Grid grid;
 
         public static void SetContent(ContentManager o) {
             content = o;
         }
 
-        public static void AddTower(Tower tower) {
-            TowerList.Add(tower);
-        }
-        public static void AddEnemy(Enemy e) {
-            EnemyList.Add(e);
-        }
-        public static void AddProjectile(Projectile p) {
-            ProjectileList.Add(p);
-        }
         public static double GetAngle(Tower t, Enemy e) {
             Console.Write("");
             float Xdist = t.CenterPos.X - e.CenterPos.X;
@@ -35,5 +27,7 @@ namespace TowerDefense {
             }
             return Math.Atan(Ydist / Xdist);   
         }
+
+        public static bool Paused = false;
     }
 }

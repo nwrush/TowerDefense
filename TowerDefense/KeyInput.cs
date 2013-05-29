@@ -18,7 +18,7 @@ namespace TowerDefense {
 
         private static Dictionary<Keys, KeyState> KeyboardState = new Dictionary<Keys, KeyState>();
 
-        public static Point MousePosition;
+        public static Vector2 MousePosition;
 
         public static Dictionary<Keys, KeyState> KeyTable {
             get { return KeyboardState; }
@@ -37,6 +37,7 @@ namespace TowerDefense {
                 Keys key = kvp.Key;
                 KeyboardState[key] = tempState[key];
             }
+            Console.Write("");
         }
 
         public static KeyState GetKeyState(Keys k) {

@@ -75,24 +75,27 @@ namespace TowerDefense {
 
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime) {
-            Input.Update()//Update the keyboard state in the input class
-            // Allows the game to exit
-            if ((Keyboard.GetState().IsKeyDown(Keys.Escape))||(Keyboard.GetState().IsKeyDown(Keys.Q))) {
-                Environment.Exit(0);
-            }
+            Input.Update();//Update the keyboard state in the input class
 
-            foreach (Projectile p in GV.ProjectileList) {
-                p.Update();
-            }
-            foreach (Tower t in GV.TowerList) {
-                t.Update(GraphicsDevice);
-            }
-            foreach (Enemy e in GV.EnemyList) {
-                e.Update(GraphicsDevice);
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space)) {
+            // Allows the game to exit
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
+
+            Player.Update();
+
+            if (!GV.Paused) {//Pause the game while the shop screen is open
+                foreach (Projectile p in GV.ProjectileList) {
+                    p.Update();
+                }
                 foreach (Tower t in GV.TowerList) {
-                    t.Fire(gameTime);
+                    t.Update(GraphicsDevice);
+                }
+                foreach (Enemy e in GV.EnemyList) {
+                    e.Update(GraphicsDevice);
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Space)) {
+                    foreach (Tower t in GV.TowerList) {
+                        t.Fire(gameTime);
+                    }
                 }
             }
             base.Update(gameTime);

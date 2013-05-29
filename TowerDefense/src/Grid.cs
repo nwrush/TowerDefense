@@ -25,7 +25,7 @@ namespace TowerDefense.src {
 
             this.CreatePointList();
             this.CreateGridList();
-            Console.Write("");
+            GV.grid = this;
         }
 
         private void CreatePointList() {

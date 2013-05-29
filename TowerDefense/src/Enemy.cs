@@ -41,7 +41,7 @@ namespace TowerDefense.src {
 
             this.Health = 150;
 
-            GV.AddEnemy(this);
+            GV.EnemyList.Add(this);
         }
 
         protected void LockToGrid() {

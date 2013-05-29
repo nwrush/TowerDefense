@@ -37,8 +37,6 @@ namespace TowerDefense.src {
             LockToGrid(grid);
             this.layer = layer;
             this.angle = 0;
-
-            GV.AddTower(this);
         }
         protected void LockToGrid(Grid grid) {
             /*The sprite is positioned with the top left corner of the sprite
