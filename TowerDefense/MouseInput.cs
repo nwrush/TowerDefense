@@ -6,8 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense {
-    static partial class Input {
-
+    public static partial class MouseInput {
         static bool isLeftMouseDown() {
             if (Mouse.GetState().LeftButton.Equals(ButtonState.Pressed)) {
                 return true;
@@ -23,7 +22,7 @@ namespace TowerDefense {
         }
 
         static Vector2 getPos() {
-            return new Vector2((float)Mouse.GetState().X,(float)Mouse.GetState().Y);
+            return new Vector2((float)Mouse.GetState().X, (float)Mouse.GetState().Y);
         }
     }
 }

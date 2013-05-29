@@ -75,6 +75,7 @@ namespace TowerDefense {
 
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime) {
+            Input.Update()//Update the keyboard state in the input class
             // Allows the game to exit
             if ((Keyboard.GetState().IsKeyDown(Keys.Escape))||(Keyboard.GetState().IsKeyDown(Keys.Q))) {
                 Environment.Exit(0);

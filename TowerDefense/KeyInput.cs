@@ -6,8 +6,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace SharpGLass {
-    public partial class Input {
+namespace TowerDefense {
+    public static partial class Input {
 
         public enum KeyState {
             None,
