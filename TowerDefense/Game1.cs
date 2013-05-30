@@ -71,17 +71,15 @@ namespace TowerDefense {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
 
             Player.Update();
-            Console.Write("");
             if (!GV.Paused) {//Pause the game while the shop screen is open
                 for (int i = 0; i <= GV.ProjectileList.Count - 1; i++) {
                     GV.ProjectileList[i].Update();
                 }
-                Console.Write("");
                 foreach (Tower t in GV.TowerList) {
                     t.Update(GraphicsDevice);
                 }
-                for (int i = 0; i <= GV.TowerList.Count - 1; i++) {
-                    GV.TowerList[i].Update(GraphicsDevice);
+                for (int i = 0; i <= GV.EnemyList.Count - 1; i++) {
+                    GV.EnemyList[i].Update(GraphicsDevice);
                 }
             }
             base.Update(gameTime);
