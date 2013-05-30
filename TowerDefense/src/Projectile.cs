@@ -18,11 +18,9 @@ namespace TowerDefense.src {
         //double angle;
         double damage;
 
-        bool draw = true;
-
         public Projectile(Vector2 pos,Enemy e,double damage,Vector2 speed) {
             this.pos = pos;
-            this.speed = speed;
+            this.speed = new Vector2(1.0f);
             this.e = e;
             //this.angle = angle;
             this.damage = damage;
@@ -43,9 +41,11 @@ namespace TowerDefense.src {
             this.UpdateRect();
         }
         private void checkCollide() {
-            if(this.boundingBox.Intersects(e.rect)){
-                this.draw = false;
-                e.Health -= this.damage;
+            foreach (Enemy e in GV.EnemyList) {
+                if (this.boundingBox.Intersects(e.rect)) {
+                    GV.ProjectileList.Remove(this);
+                    e.Health -= this.damage;
+                }
             }
         }
         private void UpdateRect(){
@@ -54,9 +54,7 @@ namespace TowerDefense.src {
         }
 
         public void Draw(SpriteBatch spritebatch) {
-            if (this.draw) {//If the sprite is "dead" then don't draw it//
-                spritebatch.Draw(texture, this.pos, Color.White);
-            }
+            spritebatch.Draw(texture, this.boundingBox,null,Color.White,0.0f,new Vector2(0.0f),SpriteEffects.None,0.9f);
         }
     }
 }

@@ -21,15 +21,12 @@ namespace TowerDefense {
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            //graphics.PreferredBackBufferHeight=thing
+            //graphics.PreferredBackBufferWidth = otherThing;
         }
 
         Background back;
         Grid grid;
-
-        Tower1 tower1;
-        Tower2 tower2;
-        Tower3 tower3;
-        Tower4 tower4;
 
         Enemy ex;
         protected override void Initialize() {
@@ -40,12 +37,6 @@ namespace TowerDefense {
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
             this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f, new Vector2(2.5f));
-
-            //Sprite  Initialization
-            this.tower1 = new Tower1(new Vector2(5, 5), grid, 0.9f);
-            this.tower2 = new Tower2(new Vector2(10, 10), grid, 0.9f);
-            this.tower3 = new Tower3(new Vector2(4, 6), grid, 0.9f);
-            this.tower4 = new Tower4(new Vector2(9, 7), grid, 0.9f);
 
             base.Initialize();
             //screen size is (800,480) default
@@ -75,21 +66,22 @@ namespace TowerDefense {
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime) {
             Input.Update();//Update the keyboard state in the input class
-
+            GV.tick += 1;//Increment the tick counter by one
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
 
             Player.Update();
             Console.Write("");
             if (!GV.Paused) {//Pause the game while the shop screen is open
-                foreach (Projectile p in GV.ProjectileList) {
-                    p.Update();
+                for (int i = 0; i <= GV.ProjectileList.Count - 1; i++) {
+                    GV.ProjectileList[i].Update();
                 }
+                Console.Write("");
                 foreach (Tower t in GV.TowerList) {
                     t.Update(GraphicsDevice);
                 }
-                foreach (Enemy e in GV.EnemyList) {
-                    e.Update(GraphicsDevice);
+                for (int i = 0; i <= GV.TowerList.Count - 1; i++) {
+                    GV.TowerList[i].Update(GraphicsDevice);
                 }
             }
             base.Update(gameTime);

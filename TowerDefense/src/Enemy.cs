@@ -24,7 +24,6 @@ namespace TowerDefense.src {
         public Vector2 CenterPos;
 
         public double Health;
-        bool dead=false;
 
         public Enemy(Vector2 gridPos, Grid grid, float Layer, Vector2 speed) {
             this.gridPos = gridPos;
@@ -79,15 +78,13 @@ namespace TowerDefense.src {
         }
         protected void isDead() {
             if (this.Health <= 0) {
-                this.dead = true;
+                GV.EnemyList.Remove(this);
             }
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {
-            if (!this.dead) {
-                //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
-                spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None, 0.5f);
-            }
+            //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
+            spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None, 0.5f);
         }
     }
 }

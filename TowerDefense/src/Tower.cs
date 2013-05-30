@@ -64,7 +64,6 @@ namespace TowerDefense.src {
             }
             this.vectorToTarget=this.TrackTarget();
             //Fire
-            GV.tick += 1;
             Console.Write("");
             if (this.LastFireTick+60 <= GV.tick) {
                 Console.Write("");
@@ -80,6 +79,7 @@ namespace TowerDefense.src {
             return new Vector2(xDist, yDist);
         }
         public virtual void Fire() {
+            Console.Write("");
             new Projectile(this.CenterPos, this.target, this.damage, this.vectorToTarget);
         }
 
