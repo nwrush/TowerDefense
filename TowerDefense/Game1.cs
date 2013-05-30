@@ -39,7 +39,6 @@ namespace TowerDefense {
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
-
             this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f, new Vector2(2.5f));
 
             //Sprite  Initialization
@@ -55,7 +54,7 @@ namespace TowerDefense {
         protected override void LoadContent() {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            Console.WriteLine("The chance that skynet will be born now is: " + Int64.MaxValue + "%");
             this.back.LoadContent(Content, "TowerMap");
             //projectile content is loaded asynchronously when the projectile is initialized
             foreach (Tower t in GV.TowerList) {//Load the textures for towers
@@ -81,7 +80,7 @@ namespace TowerDefense {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
 
             Player.Update();
-
+            Console.Write("");
             if (!GV.Paused) {//Pause the game while the shop screen is open
                 foreach (Projectile p in GV.ProjectileList) {
                     p.Update();
@@ -91,11 +90,6 @@ namespace TowerDefense {
                 }
                 foreach (Enemy e in GV.EnemyList) {
                     e.Update(GraphicsDevice);
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.Space)) {
-                    foreach (Tower t in GV.TowerList) {
-                        t.Fire(gameTime);
-                    }
                 }
             }
             base.Update(gameTime);

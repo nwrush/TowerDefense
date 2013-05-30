@@ -15,7 +15,6 @@ namespace TowerDefense.src {
          */
 
         Vector2 pos;//True position on the screen
-        Vector2 gridPos;//Position on the game grid
 
         Texture2D texture;//Sprite texture
         public String asset;//Asset name of the texture to use  make protected after testing
@@ -31,18 +30,12 @@ namespace TowerDefense.src {
 
         public Vector2 CenterPos;
 
+        private int LastFireTick = -60;
+
         public Tower(Vector2 pos,Grid grid,float layer){
-            this.gridPos = pos;
-            this.pos = new Vector2();
-            LockToGrid(grid);
+            this.pos = pos;
             this.layer = layer;
-            this.angle = 0;
-        }
-        protected void LockToGrid(Grid grid) {
-            /*The sprite is positioned with the top left corner of the sprite
-             * touching the grid point that they are placed at */
-            this.pos.X = this.gridPos.X * grid.width; ;
-            this.pos.Y = this.gridPos.Y * grid.height;
+            this.angle = 1;
         }
         
         public void LoadContent(ContentManager content) {
@@ -60,6 +53,7 @@ namespace TowerDefense.src {
             this.CenterPos.Y = (this.texture.Height / 2)+this.pos.Y;
         }
 
+        private Vector2 vectorToTarget;
         public virtual void Update(GraphicsDevice graphics) {
             //Exit the game if the tower is outside of the screen
             if ((this.pos.X < 0) || (this.pos.X > graphics.Viewport.Width)) {
@@ -68,13 +62,25 @@ namespace TowerDefense.src {
             if ((this.pos.Y < 0) || (this.pos.Y > graphics.Viewport.Height)) {
                 Environment.Exit(-1);
             }
+            this.vectorToTarget=this.TrackTarget();
+            //Fire
+            GV.tick += 1;
+            Console.Write("");
+            if (this.LastFireTick+60 <= GV.tick) {
+                Console.Write("");
+                this.Fire();
+                this.LastFireTick=GV.tick;
+            }
         }
-        protected virtual void TrackTarget() {
+        protected virtual Vector2 TrackTarget() {
             //Gets the angle the tower needs to point at to be facing the target
             this.angle = GV.GetAngle(this, this.target);
+            float xDist = this.pos.X - this.target.pos.X;
+            float yDist = this.pos.Y - this.target.pos.Y;
+            return new Vector2(xDist, yDist);
         }
-        public virtual void Fire(GameTime gametime) {
-            new Projectile(this.CenterPos, this.target, this.damage, this.angle);
+        public virtual void Fire() {
+            new Projectile(this.CenterPos, this.target, this.damage, this.vectorToTarget);
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

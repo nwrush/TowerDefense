@@ -10,7 +10,7 @@ namespace TowerDefense.src {
     class Enemy {
         Texture2D texture;
 
-        Vector2 pos;
+        public Vector2 pos;
         Vector2 gridPos;
         Vector2 speed;//Represents the change in the sprites position every tick
         int Xmultiplier, Ymultiplier;

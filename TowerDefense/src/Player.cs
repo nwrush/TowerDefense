@@ -36,9 +36,8 @@ namespace TowerDefense.src {
         }
 
         public static void Update() {
-            KeyboardState keyState = Keyboard.GetState();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Q)) {
+            if (Input.isKeyPressed(Keys.Q)) {
                 //buy a first tower
                 Tower1 t = new Tower1(Input.getPos(), GV.grid, 0.9f);
                 if (!BuyTower(t)) {//If you can't buy the tower
@@ -48,7 +47,7 @@ namespace TowerDefense.src {
                     GV.TowerList.Add(t);
                 }
             }
-            if (keyState.IsKeyDown(Keys.W)) {
+            if (Input.isKeyPressed(Keys.W)) {
                 //buy a first tower
                 Tower2 t = new Tower2(Input.getPos(), GV.grid, 0.9f);
                 if (!BuyTower(t)) {//If you can't buy the tower
@@ -57,8 +56,8 @@ namespace TowerDefense.src {
                 else {
                     GV.TowerList.Add(t);
                 }
-            } 
-            if (keyState.IsKeyDown(Keys.E)) {
+            }
+            if (Input.isKeyPressed(Keys.E)) {
                 //buy a first tower
                 Tower3 t = new Tower3(Input.getPos(), GV.grid, 0.9f);
                 if (!BuyTower(t)) {//If you can't buy the tower
@@ -67,8 +66,8 @@ namespace TowerDefense.src {
                 else {
                     GV.TowerList.Add(t);
                 }
-            } 
-            if (keyState.IsKeyDown(Keys.R)) {
+            }
+            if (Input.isKeyPressed(Keys.R)) {
                 //buy a first tower
                 Tower4 t = new Tower4(Input.getPos(), GV.grid, 0.9f);
                 if (!BuyTower(t)) {//If you can't buy the tower

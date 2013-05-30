@@ -14,15 +14,12 @@ namespace TowerDefense {
         public static ContentManager content;
         public static Grid grid;
 
-        public static void SetContent(ContentManager o) {
-            content = o;
-        }
+        public static int tick = 0;
 
         public static double GetAngle(Tower t, Enemy e) {
-            Console.Write("");
             float Xdist = t.CenterPos.X - e.CenterPos.X;
             float Ydist = t.CenterPos.Y - e.CenterPos.Y;
-            if (t.CenterPos.X < e.CenterPos.X) {
+            if (t.CenterPos.X > e.CenterPos.X) {
                 return Math.Atan(Ydist / Xdist) + 180;
             }
             return Math.Atan(Ydist / Xdist);   

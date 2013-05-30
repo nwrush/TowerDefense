@@ -12,6 +12,7 @@ namespace TowerDefense.src {
             this.target = GV.EnemyList[0];//Tower target
             this.damage = 15;
             this.cost = 60;
+            this.LoadContent(GV.content);
         }
     }
 }

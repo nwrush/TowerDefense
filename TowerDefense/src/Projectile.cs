@@ -15,16 +15,16 @@ namespace TowerDefense.src {
         Enemy e;
 
         Rectangle boundingBox;
-        double angle;
+        //double angle;
         double damage;
 
         bool draw = true;
 
-        public Projectile(Vector2 pos,Enemy e,double damage,double angle) {
+        public Projectile(Vector2 pos,Enemy e,double damage,Vector2 speed) {
             this.pos = pos;
-            this.speed = new Vector2(1.0f);
+            this.speed = speed;
             this.e = e;
-            this.angle = angle;
+            //this.angle = angle;
             this.damage = damage;
 
             this.LoadContent(GV.content);
@@ -54,8 +54,8 @@ namespace TowerDefense.src {
         }
 
         public void Draw(SpriteBatch spritebatch) {
-            if (this.draw) {//If the sprite is "dead" then don't draw it//                   //Draw the sprite with the origin at the center, for the rotate
-                spritebatch.Draw(texture, this.boundingBox, null,Color.White,(float)this.angle,new Vector2(texture.Width/2f,texture.Height/2f),SpriteEffects.None,0.1f);
+            if (this.draw) {//If the sprite is "dead" then don't draw it//
+                spritebatch.Draw(texture, this.pos, Color.White);
             }
         }
     }

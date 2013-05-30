@@ -9,12 +9,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     class Tower1:Tower{
-        public Tower1(Vector2 pos, Grid grid, float layer)
-            :base(pos,grid,layer) {
+        public Tower1(Vector2 pos, Grid grid, float layer):
+            base(pos,grid,layer){
             this.asset = "Tower1";
             this.damage = 20;
             this.cost = 100;
 
+            this.LoadContent(GV.content);
             //DEBUG STATEMENTS
             this.target = GV.EnemyList[0];//Because we know the bagel is the first and only sprite in the Enemy list right now, we can do this
         }
