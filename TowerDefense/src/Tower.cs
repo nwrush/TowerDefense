@@ -22,7 +22,7 @@ namespace TowerDefense.src {
         float layer;//Layer between 1.0(back) and 0.0(front) used to determine where the sprite is drawn
 
         public int cost;//Cost of the tower
-        double angle;//Angle the tower is pointings
+        public double angle;//Angle the tower is pointings
 
         protected double damage;
 
@@ -35,7 +35,6 @@ namespace TowerDefense.src {
         public Tower(Vector2 pos,Grid grid,float layer){
             this.pos = pos;
             this.layer = layer;
-            this.angle = 1;
         }
         
         public void LoadContent(ContentManager content) {
@@ -72,10 +71,8 @@ namespace TowerDefense.src {
             }
         }
         protected virtual Vector2 TrackTarget() {
-            //Gets the angle the tower needs to point at to be facing the target
-            this.angle = GV.GetAngle(this, this.target);
-            float xDist = this.pos.X - this.target.pos.X;
-            float yDist = this.pos.Y - this.target.pos.Y;
+            float xDist = (this.pos.X - this.target.pos.X)/50;
+            float yDist = (this.pos.Y - this.target.pos.Y)/50;
             return new Vector2(xDist, yDist);
         }
         public virtual void Fire() {

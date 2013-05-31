@@ -13,7 +13,11 @@ namespace TowerDefense.src {
             this.target = GV.EnemyList[0];//Tower target
             this.damage = 15;
             this.cost = 60;
+            this.angle = 0;
             this.LoadContent(GV.content);
+        }
+        public override void Update(Microsoft.Xna.Framework.Graphics.GraphicsDevice graphics) {
+            base.Update(graphics);
         }
     }
 }

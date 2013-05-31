@@ -82,6 +82,10 @@ namespace TowerDefense {
                     GV.EnemyList[i].Update(GraphicsDevice);
                 }
             }
+
+            if (GV.EnemyList.Count == 0) {
+                Environment.Exit(2);
+            }
             base.Update(gameTime);
         }
 

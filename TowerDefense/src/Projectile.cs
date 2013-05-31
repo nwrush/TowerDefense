@@ -20,7 +20,7 @@ namespace TowerDefense.src {
 
         public Projectile(Vector2 pos,Enemy e,double damage,Vector2 speed) {
             this.pos = pos;
-            this.speed = new Vector2(1.0f);
+            this.speed = -1*speed;
             this.e = e;
             //this.angle = angle;
             this.damage = damage;
@@ -36,7 +36,9 @@ namespace TowerDefense.src {
             this.boundingBox = new Rectangle((int)this.pos.X, (int)this.pos.Y, texture.Width, texture.Height);
         }
         public void Update() {
+            Console.Write("");
             this.pos += this.speed;
+            Console.Write("");
             this.checkCollide();
             this.UpdateRect();
         }
@@ -44,6 +46,7 @@ namespace TowerDefense.src {
             foreach (Enemy e in GV.EnemyList) {
                 if (this.boundingBox.Intersects(e.rect)) {
                     GV.ProjectileList.Remove(this);
+                    Console.Write("");
                     e.Health -= this.damage;
                 }
             }
