@@ -10,6 +10,8 @@ namespace TowerDefense {
         public static List<Enemy> EnemyList = new List<Enemy>();
         public static List<Tower> TowerList = new List<Tower>();
         public static List<Projectile> ProjectileList = new List<Projectile>();
+        public static Microsoft.Xna.Framework.Graphics.SpriteFont spriteFont;
+
 
         public static ContentManager content;
         public static Grid grid;

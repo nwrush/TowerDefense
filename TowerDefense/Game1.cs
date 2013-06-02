@@ -33,6 +33,7 @@ namespace TowerDefense {
             this.IsMouseVisible = true;
             // TODO: Add your initialization logic here
             GV.content = Content;
+            GV.spriteFont = Content.Load<SpriteFont>("font");
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
@@ -86,6 +87,7 @@ namespace TowerDefense {
             if (GV.EnemyList.Count == 0) {
                 Environment.Exit(2);
             }
+
             base.Update(gameTime);
         }
 
@@ -97,7 +99,7 @@ namespace TowerDefense {
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
             //Draw the grid onto the screen, gird shouldn't be visible in the final version
-            //this.grid.DrawGrid(spriteBatch);
+            this.grid.DrawGrid(spriteBatch);
             foreach (Projectile p in GV.ProjectileList) {//Draw the projectiles on the screen
                 p.Draw(spriteBatch);
             }
@@ -109,7 +111,6 @@ namespace TowerDefense {
             }
             Player.Draw(spriteBatch);
             //Draw the background
-            this.back.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

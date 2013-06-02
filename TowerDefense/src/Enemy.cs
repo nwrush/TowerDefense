@@ -84,7 +84,9 @@ namespace TowerDefense.src {
 
         public virtual void Draw(SpriteBatch spritebatch) {
             //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
-            spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None, 0.5f);
+            spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None,0.5f);
+            //Draw the health above the sprite
+            spritebatch.DrawString(GV.spriteFont, this.Health.ToString(), new Vector2(this.pos.X, this.pos.Y + this.texture.Height / 2), Color.Black, 0.0f, new Vector2(), 1.0f, SpriteEffects.None, 0.5f);
         }
     }
 }
