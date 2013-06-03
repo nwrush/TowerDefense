@@ -76,13 +76,12 @@ namespace TowerDefense.src {
             return new Vector2(xDist, yDist);
         }
         public virtual void Fire() {
-            Console.Write("");
             new Projectile(this.CenterPos, this.target, this.damage, this.vectorToTarget);
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {
             //Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, SpriteEffects effects, float layerDepth);
-            spritebatch.Draw(this.texture, this.rect, null, Color.White, (float)this.angle/*Rotation*/, new Vector2(this.texture.Width/2,this.texture.Height/2), SpriteEffects.None, this.layer);
+            spritebatch.Draw(this.texture, this.rect, null, Color.Transparent, (float)this.angle/*Rotation*/, new Vector2(this.texture.Width/2,this.texture.Height/2), SpriteEffects.None, this.layer);
         }
     }
 }

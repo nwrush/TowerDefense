@@ -29,6 +29,7 @@ namespace TowerDefense {
         Grid grid;
 
         Enemy ex;
+        StartingScreen Startscreen;
         protected override void Initialize() {
             this.IsMouseVisible = true;
             // TODO: Add your initialization logic here
@@ -38,6 +39,8 @@ namespace TowerDefense {
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
             this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f, new Vector2(2.5f));
+
+            Startscreen=new StartingScreen(new Rectangle(0,0,GraphicsDevice.Viewport.Width,GraphicsDevice.Viewport.Height));
 
             base.Initialize();
             //screen size is (800,480) default
@@ -56,23 +59,22 @@ namespace TowerDefense {
                 e.LoadContent(Content);
             }
             Player.LoadContent(Content);
-            // TODO: use this.Content to load your game content here
-            //this.Content
         }
 
         protected override void UnloadContent() {
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime) {
             Input.Update();//Update the keyboard state in the input class
-            GV.tick += 1;//Increment the tick counter by one
+
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
 
-            Player.Update();
-            if (!GV.Paused) {//Pause the game while the shop screen is open
+            if (Startscreen.play) {
+                GV.tick += 1;//Increment the tick ocunter by one
+                Player.Update();
+
                 for (int i = 0; i <= GV.ProjectileList.Count - 1; i++) {
                     GV.ProjectileList[i].Update();
                 }
@@ -82,35 +84,36 @@ namespace TowerDefense {
                 for (int i = 0; i <= GV.EnemyList.Count - 1; i++) {
                     GV.EnemyList[i].Update(GraphicsDevice);
                 }
+                
+                if (GV.EnemyList.Count == 0) {
+                    Environment.Exit(2);
+                }
             }
-
-            if (GV.EnemyList.Count == 0) {
-                Environment.Exit(2);
-            }
+            else { Startscreen.Update(); }
 
             base.Update(gameTime);
         }
 
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        /// Sprites position is given using the top-left corner
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            if (this.Startscreen.play) {
+                foreach (Projectile p in GV.ProjectileList) {//Draw the projectiles on the screen
+                    p.Draw(spriteBatch);
+                }
+                foreach (Tower t in GV.TowerList) {//Draw the towers on the screen
+                    t.Draw(spriteBatch);
+                }
+                foreach (Enemy e in GV.EnemyList) {//Draw the enemies on the screen
+                    e.Draw(spriteBatch);
+                }
+                Player.Draw(spriteBatch);
+                //Draw the background
+                this.back.Draw(spriteBatch);
+            }
+            else { Startscreen.Draw(spriteBatch); }
 
-            //Draw the grid onto the screen, gird shouldn't be visible in the final version
-            this.grid.DrawGrid(spriteBatch);
-            foreach (Projectile p in GV.ProjectileList) {//Draw the projectiles on the screen
-                p.Draw(spriteBatch);
-            }
-            foreach (Tower t in GV.TowerList) {//Draw the towers on the screen
-                t.Draw(spriteBatch);
-            }
-            foreach (Enemy e in GV.EnemyList) {//Draw the enemies on the screen
-                e.Draw(spriteBatch);
-            }
-            Player.Draw(spriteBatch);
-            //Draw the background
             spriteBatch.End();
 
             base.Draw(gameTime);

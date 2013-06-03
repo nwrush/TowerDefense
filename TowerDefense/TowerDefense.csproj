@@ -119,6 +119,7 @@
     <Compile Include="src\Player.cs" />
     <Compile Include="src\Projectile.cs" />
     <Compile Include="src\Sprite.cs" />
+    <Compile Include="src\StartingScreen.cs" />
     <Compile Include="src\Tower.cs" />
     <Compile Include="src\Tower1.cs" />
     <Compile Include="src\Tower2.cs" />
