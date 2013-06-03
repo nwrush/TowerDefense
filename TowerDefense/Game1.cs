@@ -38,7 +38,7 @@ namespace TowerDefense {
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
-            this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f, new Vector2(2.5f));
+            this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f);
 
             Startscreen=new StartingScreen(new Rectangle(0,0,GraphicsDevice.Viewport.Width,GraphicsDevice.Viewport.Height));
 
@@ -54,9 +54,6 @@ namespace TowerDefense {
             //projectile content is loaded asynchronously when the projectile is initialized
             foreach (Tower t in GV.TowerList) {//Load the textures for towers
                 t.LoadContent(Content);
-            }
-            foreach (Enemy e in GV.EnemyList) {//Load the textures for enemies
-                e.LoadContent(Content);
             }
             Player.LoadContent(Content);
         }
@@ -88,6 +85,10 @@ namespace TowerDefense {
                 if (GV.EnemyList.Count == 0) {
                     Environment.Exit(2);
                 }
+
+                if (GV.tick % 50 == 0) {
+                    new Enemy(new Vector2(), GV.grid, 0.5f);
+                }
             }
             else { Startscreen.Update(); }
 
@@ -110,7 +111,7 @@ namespace TowerDefense {
                 }
                 Player.Draw(spriteBatch);
                 //Draw the background
-                this.back.Draw(spriteBatch);
+                //this.back.Draw(spriteBatch);
             }
             else { Startscreen.Draw(spriteBatch); }
 

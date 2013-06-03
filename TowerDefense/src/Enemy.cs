@@ -13,7 +13,6 @@ namespace TowerDefense.src {
         public Vector2 pos;
         Vector2 gridPos;
         Vector2 speed;//Represents the change in the sprites position every tick
-        int Xmultiplier, Ymultiplier;
         Grid grid;
 
         float layer;
@@ -25,21 +24,25 @@ namespace TowerDefense.src {
 
         public double Health;
 
-        public Enemy(Vector2 gridPos, Grid grid, float Layer, Vector2 speed) {
+        private static Vector2 focus = new Vector2(200, 240);
+        private Vector2 targetPos;
+
+        public Enemy(Vector2 gridPos, Grid grid, float Layer) {
             this.gridPos = gridPos;
             this.grid = grid;
             this.LockToGrid();
             this.layer = Layer;
-            this.speed = speed;
+            this.speed = this.TrackTarget();
 
-            this.Xmultiplier = -1;
-            this.Ymultiplier = -1;
             this.Scale = 0.25f;
 
             this.asset = "Plain-Bagel";
 
             this.Health = 150;
 
+            this.targetPos = focus;
+
+            this.LoadContent();
             GV.EnemyList.Add(this);
         }
 
@@ -50,8 +53,8 @@ namespace TowerDefense.src {
             this.pos.Y = this.gridPos.Y * this.grid.height;
         }
 
-        public void LoadContent(ContentManager content){
-            this.texture=content.Load<Texture2D>(this.asset);
+        public void LoadContent(){
+            this.texture=GV.content.Load<Texture2D>(this.asset);
             this.rect = new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
             this.SetCenter();
         }
@@ -62,18 +65,13 @@ namespace TowerDefense.src {
         }
 
         public void Update(GraphicsDevice graphics) {
-            this.pos.X += this.speed.X * this.Xmultiplier;
-            this.pos.Y += this.speed.Y * this.Ymultiplier;
-            this.Bounding(graphics);
+            this.pos.X += this.speed.X;
+            this.pos.Y += this.speed.Y;
             this.SetCenter();
             this.isDead();
-        }
-        protected void Bounding(GraphicsDevice graphics) {
-            if ((this.pos.X <= 0) || (this.pos.X >= graphics.Viewport.Width - this.texture.Width*this.Scale)) {
-                this.Xmultiplier *= -1;
-            }
-            if ((this.pos.Y <= 0) || (this.pos.Y >= graphics.Viewport.Height - this.texture.Height*this.Scale)) {
-                this.Ymultiplier *= -1;
+            this.Path();
+            if (this.pos.X > graphics.Viewport.Width + this.texture.Width) {
+                GV.EnemyList.Remove(this);
             }
         }
         protected void isDead() {
@@ -81,10 +79,20 @@ namespace TowerDefense.src {
                 GV.EnemyList.Remove(this);
             }
         }
+        protected virtual Vector2 TrackTarget() {
+            float xDist = (this.pos.X - this.targetPos.X) / 50;
+            float yDist = (this.pos.Y - this.targetPos.Y) / 50;
+            return new Vector2(xDist, yDist);
+        }
+        protected void Path() {
+            if (this.pos.Equals(focus)) {
+                this.speed = new Vector2(0.0f, 10.0f);
+            }
+        }
 
         public virtual void Draw(SpriteBatch spritebatch) {
             //public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects effects, float layerDepth);
-            spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None,0.5f);
+            spritebatch.Draw(this.texture, this.pos, null, Color.White, 0.0f, new Vector2(), this.Scale, SpriteEffects.None,0.1f);
         }
     }
 }

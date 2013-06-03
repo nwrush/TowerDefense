@@ -39,7 +39,7 @@ namespace TowerDefense.src {
 
             if (Input.isKeyPressed(Keys.Q)) {
                 //buy a first tower
-                Tower1 t = new Tower1(Input.getPos(), GV.grid, 0.9f);
+                Tower1 t = new Tower1(Input.getPos(), GV.grid, 0.1f);
                 if (!BuyTower(t)) {//If you can't buy the tower
                     t = null;
                 }

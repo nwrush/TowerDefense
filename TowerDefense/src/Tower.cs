@@ -63,9 +63,7 @@ namespace TowerDefense.src {
             }
             this.vectorToTarget=this.TrackTarget();
             //Fire
-            Console.Write("");
             if (this.LastFireTick+60 <= GV.tick) {
-                Console.Write("");
                 this.Fire();
                 this.LastFireTick=GV.tick;
             }
@@ -81,7 +79,7 @@ namespace TowerDefense.src {
 
         public virtual void Draw(SpriteBatch spritebatch) {
             //Draw(Texture2D texture, Rectangle destinationRectangle, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, SpriteEffects effects, float layerDepth);
-            spritebatch.Draw(this.texture, this.rect, null, Color.Transparent, (float)this.angle/*Rotation*/, new Vector2(this.texture.Width/2,this.texture.Height/2), SpriteEffects.None, this.layer);
+            spritebatch.Draw(this.texture, this.rect, null, Color.White, (float)this.angle/*Rotation*/, new Vector2(this.texture.Width/2,this.texture.Height/2), SpriteEffects.None, this.layer);
         }
     }
 }

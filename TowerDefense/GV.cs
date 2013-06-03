@@ -24,7 +24,7 @@ namespace TowerDefense {
             if (t.CenterPos.X > e.CenterPos.X) {
                 return Math.Atan(Ydist / Xdist) + 180;
             }
-            return Math.Atan(Ydist / Xdist);   
+            return Math.Atan(Ydist / Xdist);
         }
 
         public static bool Paused = false;

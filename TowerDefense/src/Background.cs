@@ -24,7 +24,7 @@ namespace TowerDefense.src {
         }
 
         public void Draw(SpriteBatch spritebatch) {
-            spritebatch.Draw(this.texture, this.rect, null, Color.White, 0.0f, new Vector2(), SpriteEffects.None, 0.0f);
+            spritebatch.Draw(this.texture, this.rect, null, Color.White, 0.0f, new Vector2(), SpriteEffects.None,0.9f);
         }
     }
 }
