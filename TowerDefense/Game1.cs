@@ -32,16 +32,19 @@ namespace TowerDefense {
         StartingScreen Startscreen;
         protected override void Initialize() {
             this.IsMouseVisible = true;
-            // TODO: Add your initialization logic here
+
             GV.content = Content;
             GV.spriteFont = Content.Load<SpriteFont>("font");
+
             //Level Initalizations
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
             this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f);
 
             Startscreen=new StartingScreen(new Rectangle(0,0,GraphicsDevice.Viewport.Width,GraphicsDevice.Viewport.Height));
-
+            if (Input.isKeyDown(Keys.G)) {
+                Startscreen.play = true;
+            }
             base.Initialize();
             //screen size is (800,480) default
         }
@@ -86,7 +89,7 @@ namespace TowerDefense {
                     Environment.Exit(2);
                 }
 
-                if (GV.tick % 50 == 0) {
+                if (GV.tick % 250 == 0) {
                     new Enemy(new Vector2(), GV.grid, 0.5f);
                 }
             }

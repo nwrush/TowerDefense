@@ -27,11 +27,14 @@ namespace TowerDefense.src {
         private static Vector2 focus = new Vector2(200, 240);
         private Vector2 targetPos;
 
+        private static int Damage = 10;
+
         public Enemy(Vector2 gridPos, Grid grid, float Layer) {
             this.gridPos = gridPos;
             this.grid = grid;
-            this.LockToGrid();
             this.layer = Layer;
+            
+            this.targetPos = focus;
             this.speed = this.TrackTarget();
 
             this.Scale = 0.25f;
@@ -40,17 +43,8 @@ namespace TowerDefense.src {
 
             this.Health = 150;
 
-            this.targetPos = focus;
-
             this.LoadContent();
             GV.EnemyList.Add(this);
-        }
-
-        protected void LockToGrid() {
-            /*The sprite is positioned with the top left corner of the sprite
-             * touching the grid point that they are placed at */
-            this.pos.X = this.gridPos.X * this.grid.width; ;
-            this.pos.Y = this.gridPos.Y * this.grid.height;
         }
 
         public void LoadContent(){
@@ -72,7 +66,9 @@ namespace TowerDefense.src {
             this.Path();
             if (this.pos.X > graphics.Viewport.Width + this.texture.Width) {
                 GV.EnemyList.Remove(this);
+                Player.Health -= Damage;
             }
+            Console.Write("");
         }
         protected void isDead() {
             if (this.Health <= 0) {
@@ -80,8 +76,8 @@ namespace TowerDefense.src {
             }
         }
         protected virtual Vector2 TrackTarget() {
-            float xDist = (this.pos.X - this.targetPos.X) / 50;
-            float yDist = (this.pos.Y - this.targetPos.Y) / 50;
+            float xDist = (this.pos.X - this.targetPos.X) / -50;
+            float yDist = (this.pos.Y - this.targetPos.Y) / -50;
             return new Vector2(xDist, yDist);
         }
         protected void Path() {
