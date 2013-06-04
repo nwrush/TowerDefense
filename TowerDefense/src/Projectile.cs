@@ -36,9 +36,7 @@ namespace TowerDefense.src {
             this.boundingBox = new Rectangle((int)this.pos.X, (int)this.pos.Y, texture.Width, texture.Height);
         }
         public void Update() {
-            Console.Write("");
             this.pos += this.speed;
-            Console.Write("");
             this.checkCollide();
             this.UpdateRect();
         }

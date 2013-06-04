@@ -89,7 +89,7 @@ namespace TowerDefense {
                     Environment.Exit(2);
                 }
 
-                if (GV.tick % 250 == 0) {
+                if (GV.tick % 100 == 0) {
                     new Enemy(new Vector2(), GV.grid, 0.5f);
                 }
             }
