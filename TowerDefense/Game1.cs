@@ -42,9 +42,6 @@ namespace TowerDefense {
             this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f);
 
             Startscreen=new StartingScreen(new Rectangle(0,0,GraphicsDevice.Viewport.Width,GraphicsDevice.Viewport.Height));
-            if (Input.isKeyDown(Keys.G)) {
-                Startscreen.play = true;
-            }
             base.Initialize();
             //screen size is (800,480) default
         }
@@ -67,7 +64,9 @@ namespace TowerDefense {
 
         protected override void Update(GameTime gameTime) {
             Input.Update();//Update the keyboard state in the input class
-
+            if (Input.isKeyDown(Keys.G)) {
+                Startscreen.play = true;
+            }
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
 

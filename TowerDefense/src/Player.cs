@@ -36,7 +36,9 @@ namespace TowerDefense.src {
         }
 
         public static void Update() {
-
+            if (Health <= 0) {
+                Environment.Exit(0);
+            }
             if (Input.isKeyPressed(Keys.D1)) {
                 //buy a first tower
                 Tower1 t = new Tower1(Input.getPos(), GV.grid, 0.1f);

@@ -36,6 +36,7 @@ namespace TowerDefense.src {
             
             this.targetPos = focus;
             this.speed = this.TrackTarget();
+            Console.Write(speed);
 
             this.Scale = 0.25f;
 
@@ -45,6 +46,16 @@ namespace TowerDefense.src {
 
             this.LoadContent();
             GV.EnemyList.Add(this);
+        }
+        static List<Vector2> startList = new List<Vector2>();
+        public Enemy() {
+            this.layer = 0.5f;
+
+            startList.Add(new Vector2());
+            startList.Add(new Vector2(-50,200));
+            startList.Add(new Vector2(0,400));
+            Random randgen = new Random();
+            this.pos=startList[randgen.Next(4)];
         }
 
         public void LoadContent(){
@@ -68,7 +79,6 @@ namespace TowerDefense.src {
                 GV.EnemyList.Remove(this);
                 Player.Health -= Damage;
             }
-            Console.Write("");
         }
         protected void isDead() {
             if (this.Health <= 0) {
@@ -76,13 +86,13 @@ namespace TowerDefense.src {
             }
         }
         protected virtual Vector2 TrackTarget() {
-            float xDist = (this.pos.X - this.targetPos.X) / -50;
-            float yDist = (this.pos.Y - this.targetPos.Y) / -50;
+            float xDist = (this.pos.X - this.targetPos.X) / -20;
+            float yDist = (this.pos.Y - this.targetPos.Y) / -20;
             return new Vector2(xDist, yDist);
         }
         protected void Path() {
             if (this.pos.Equals(focus)) {
-                this.speed = new Vector2(0.0f, 10.0f);
+                this.speed = new Vector2(1.0f, 0.0f);
             }
         }
 
