@@ -36,7 +36,6 @@ namespace TowerDefense.src {
             
             this.targetPos = focus;
             this.speed = this.TrackTarget();
-            Console.Write(speed);
 
             this.Scale = 0.25f;
 
@@ -47,23 +46,35 @@ namespace TowerDefense.src {
             this.LoadContent();
             GV.EnemyList.Add(this);
         }
-        static List<Vector2> startList = new List<Vector2>();
+        static List<Vector2> startList = new List<Vector2>(){
+            new Vector2(),
+            new Vector2(-50,240),
+            new Vector2(0,400)
+        };
+        static List<Vector2> speedList = new List<Vector2>(){
+            new Vector2(4,24/5),
+            new Vector2(3,0),
+            new Vector2(-4,-24/5)
+        };
+        static Random randgen = new Random();
         public Enemy() {
             this.layer = 0.5f;
+            this.LoadContent();
 
-            startList.Add(new Vector2());
-            startList.Add(new Vector2(-50,200));
-            startList.Add(new Vector2(0,400));
-            Random randgen = new Random();
-            this.pos=startList[randgen.Next(4)];
+            this.Health = 150;
+
+            int rand = randgen.Next(3);
+
+            this.pos = new Vector2();
+            this.speed = new Vector2(10,12);
+            GV.EnemyList.Add(this);
         }
 
         public void LoadContent(){
-            this.texture=GV.content.Load<Texture2D>(this.asset);
+            this.texture=GV.content.Load<Texture2D>("Plain-Bagel");
             this.rect = new Rectangle((int)this.pos.X, (int)this.pos.Y, this.texture.Width, this.texture.Height);
             this.SetCenter();
         }
-
         protected void SetCenter() {
             this.CenterPos.X = (this.texture.Width / 2)+this.pos.X;
             this.CenterPos.Y = (this.texture.Height / 2)+this.pos.Y;
@@ -74,10 +85,15 @@ namespace TowerDefense.src {
             this.pos.Y += this.speed.Y;
             this.SetCenter();
             this.isDead();
-            this.Path();
-            if (this.pos.X > graphics.Viewport.Width + this.texture.Width) {
+
+            if (this.pos.Equals(focus)) {
+                this.speed = new Vector2(1.0f, 0.0f);
+            }
+
+            if (this.pos.X > graphics.Viewport.Width + this.texture.Width*this.Scale+200) {
                 GV.EnemyList.Remove(this);
-                Player.Health -= Damage;
+                Player.Health -= Damage+15;
+                Player.Money += 25;
             }
         }
         protected void isDead() {
@@ -89,11 +105,6 @@ namespace TowerDefense.src {
             float xDist = (this.pos.X - this.targetPos.X) / -20;
             float yDist = (this.pos.Y - this.targetPos.Y) / -20;
             return new Vector2(xDist, yDist);
-        }
-        protected void Path() {
-            if (this.pos.Equals(focus)) {
-                this.speed = new Vector2(1.0f, 0.0f);
-            }
         }
 
         public virtual void Draw(SpriteBatch spritebatch) {

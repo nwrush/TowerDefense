@@ -83,13 +83,12 @@ namespace TowerDefense {
                 for (int i = 0; i <= GV.EnemyList.Count - 1; i++) {
                     GV.EnemyList[i].Update(GraphicsDevice);
                 }
-                
                 if (GV.EnemyList.Count == 0) {
                     Environment.Exit(2);
                 }
 
                 if (GV.tick % 100 == 0) {
-                    new Enemy(new Vector2(), GV.grid, 0.5f);
+                    new Enemy(new Vector2(1, 1), grid, 0.9f);
                 }
             }
             else { Startscreen.Update(); }
@@ -100,7 +99,7 @@ namespace TowerDefense {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.White);
 
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             if (this.Startscreen.play) {
                 foreach (Projectile p in GV.ProjectileList) {//Draw the projectiles on the screen
                     p.Draw(spriteBatch);
@@ -113,7 +112,7 @@ namespace TowerDefense {
                 }
                 Player.Draw(spriteBatch);
                 //Draw the background
-                //this.back.Draw(spriteBatch);
+                this.back.Draw(spriteBatch);
             }
             else { Startscreen.Draw(spriteBatch); }
 

@@ -22,7 +22,6 @@ namespace TowerDefense.src {
         }
 
         public void Update() {
-            Console.Write("");
             if (Input.isKeyDown(Microsoft.Xna.Framework.Input.Keys.Enter) && this.active.Name.Equals("Title")) {
                 this.active = this.instuct;
             }

@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense.src {
     static class Player {
-        static int Money = 10000000;
+        public static int Money = 500;
         public static int Score = 0;
         public static int Health = 100;
         private static SpriteFont font;
@@ -20,7 +20,6 @@ namespace TowerDefense.src {
             Pressed,
             Released
         }
-
 
         public static bool BuyTower(Tower t) {
             if (t.cost > Money) {

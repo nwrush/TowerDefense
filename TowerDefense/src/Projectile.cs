@@ -43,8 +43,8 @@ namespace TowerDefense.src {
         private void checkCollide() {
             foreach (Enemy e in GV.EnemyList) {
                 if (this.boundingBox.Intersects(e.rect)) {
-                    GV.ProjectileList.Remove(this);
                     Console.Write("");
+                    GV.ProjectileList.Remove(this);
                     e.Health -= this.damage;
                 }
             }

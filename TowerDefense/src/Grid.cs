@@ -39,7 +39,6 @@ namespace TowerDefense.src {
                 yVal += this.height;
                 xVal = 0;
             }
-            Console.Write("");
         }
 
         private void CreateGridList(){
@@ -71,7 +70,6 @@ namespace TowerDefense.src {
             List<Vector2> TopList,BottomList;
             TopList=this.RowList[0];
             BottomList=this.RowList[this.RowList.Count-1];
-            Console.Write("");
             for (int i = 0; i <= TopList.Count-1; i++) {
                 Primitives2D.DrawLine(spritebatch, TopList[i], BottomList[i], Color.Black, 2.0f);
             }
