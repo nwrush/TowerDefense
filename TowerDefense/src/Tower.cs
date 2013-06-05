@@ -67,6 +67,9 @@ namespace TowerDefense.src {
                 this.Fire();
                 this.LastFireTick=GV.tick;
             }
+            if (!GV.EnemyList.Contains(this.target)) {
+                this.target = GV.EnemyList[0];
+            }
         }
         protected virtual Vector2 TrackTarget() {
             float xDist = (this.pos.X - this.target.pos.X)/50;

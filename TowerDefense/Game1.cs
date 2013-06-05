@@ -112,7 +112,7 @@ namespace TowerDefense {
                 }
                 Player.Draw(spriteBatch);
                 //Draw the background
-                this.back.Draw(spriteBatch);
+                //this.back.Draw(spriteBatch);
             }
             else { Startscreen.Draw(spriteBatch); }
 

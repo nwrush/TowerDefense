@@ -46,6 +46,7 @@ namespace TowerDefense.src {
             this.LoadContent();
             GV.EnemyList.Add(this);
         }
+
         static List<Vector2> startList = new List<Vector2>(){
             new Vector2(),
             new Vector2(-50,240),
@@ -83,6 +84,8 @@ namespace TowerDefense.src {
         public void Update(GraphicsDevice graphics) {
             this.pos.X += this.speed.X;
             this.pos.Y += this.speed.Y;
+            this.rect.X = (int)this.pos.X;
+            this.rect.Y = (int)this.pos.Y;
             this.SetCenter();
             this.isDead();
 
@@ -93,12 +96,12 @@ namespace TowerDefense.src {
             if (this.pos.X > graphics.Viewport.Width + this.texture.Width*this.Scale+200) {
                 GV.EnemyList.Remove(this);
                 Player.Health -= Damage+15;
-                Player.Money += 25;
             }
         }
         protected void isDead() {
             if (this.Health <= 0) {
                 GV.EnemyList.Remove(this);
+                Player.Money += 25;
             }
         }
         protected virtual Vector2 TrackTarget() {

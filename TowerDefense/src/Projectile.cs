@@ -37,16 +37,13 @@ namespace TowerDefense.src {
         }
         public void Update() {
             this.pos += this.speed;
-            this.checkCollide();
             this.UpdateRect();
+            this.checkCollide();
         }
         private void checkCollide() {
-            foreach (Enemy e in GV.EnemyList) {
-                if (this.boundingBox.Intersects(e.rect)) {
-                    Console.Write("");
-                    GV.ProjectileList.Remove(this);
-                    e.Health -= this.damage;
-                }
+            if (this.boundingBox.Intersects(this.e.rect)) {
+                GV.ProjectileList.Remove(this);
+                e.Health -= this.damage;
             }
         }
         private void UpdateRect(){
