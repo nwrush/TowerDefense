@@ -12,7 +12,6 @@ namespace TowerDefense {
         public static List<Projectile> ProjectileList = new List<Projectile>();
         public static Microsoft.Xna.Framework.Graphics.SpriteFont spriteFont;
 
-
         public static ContentManager content;
         public static Grid grid;
 
@@ -28,5 +27,7 @@ namespace TowerDefense {
         }
 
         public static bool Paused = false;
+        public static bool Lost = false;
+        public static int PLAY = 0;//0 for start screen, 1 for game, 2 for end screen
     }
 }

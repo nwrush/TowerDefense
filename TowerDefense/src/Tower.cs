@@ -54,13 +54,6 @@ namespace TowerDefense.src {
 
         private Vector2 vectorToTarget;
         public virtual void Update(GraphicsDevice graphics) {
-            //Exit the game if the tower is outside of the screen
-            if ((this.pos.X < 0) || (this.pos.X > graphics.Viewport.Width)) {
-                Environment.Exit(-1);
-            }
-            if ((this.pos.Y < 0) || (this.pos.Y > graphics.Viewport.Height)) {
-                Environment.Exit(-1);
-            }
             this.vectorToTarget=this.TrackTarget();
             //Fire
             if (this.LastFireTick+60 <= GV.tick) {

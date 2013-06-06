@@ -27,7 +27,7 @@ namespace TowerDefense.src {
             }
             else {
                 if (Input.isKeyDown(Microsoft.Xna.Framework.Input.Keys.Space)&&this.active.Equals(this.instuct)){
-                    this.play = true;
+                    GV.PLAY = 1;
                 }
             }
         }

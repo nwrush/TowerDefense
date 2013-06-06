@@ -47,6 +47,7 @@ namespace TowerDefense.src {
             }
         }
         private void UpdateRect(){
+            //Updates the rectangle for sprite collision
             this.boundingBox.X=(int)this.pos.X;
             this.boundingBox.Y=(int)this.pos.Y;
         }
