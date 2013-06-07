@@ -77,7 +77,7 @@ namespace TowerDefense {
                 Startscreen.play = true;
             }
             // Allows the game to exit
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape)) { Environment.Exit(0); }
+            if (Input.isKeyDown(Keys.Escape)||Input.isKeyDown(Keys.Q)) { Environment.Exit(0); }
 
             if (GV.PLAY==1) {
                 GV.tick += 1;//Increment the tick ocunter by one
@@ -112,6 +112,7 @@ namespace TowerDefense {
                     GV.TowerList = new List<Tower>();
                     GV.ProjectileList = new List<Projectile>();
                     GV.PLAY = 1;
+                    new Enemy();
                 }
             }
             else { Console.WriteLine("WAT"); Environment.Exit(int.MaxValue); }
