@@ -16,12 +16,6 @@ namespace TowerDefense.src {
         private static SpriteBatch spriteBatch;
         public static SpriteBatch sprite { set { spriteBatch = value; } }
 
-        private enum KeyState {
-            None,
-            Down,
-            Pressed,
-            Released
-        }
 
         public static bool BuyTower(Tower t) {
             if (t.cost > Money) {

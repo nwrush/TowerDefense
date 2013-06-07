@@ -7,6 +7,7 @@ namespace TowerDefense {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        //Nobody knows what happens here
         static void Main(string[] args)
         {
             using (Game1 game = new Game1())

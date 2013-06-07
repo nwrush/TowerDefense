@@ -11,7 +11,8 @@ namespace TowerDefense.src {
     class Tower{
         /*
          * Base class for all towers in the game
-         * Handles LoadContent, Draw, most of the constructor, and some of the update function
+         * Handles LoadContent, Draw, most of the constructor, and some of the update function.
+         * Each individual tower class has specifics such as damage.
          */
 
         Vector2 pos;//True position on the screen
@@ -35,6 +36,7 @@ namespace TowerDefense.src {
         public Tower(Vector2 pos,Grid grid,float layer){
             this.pos = pos;
             this.layer = layer;
+            this.target = GV.EnemyList[0];
         }
         
         public void LoadContent(ContentManager content) {

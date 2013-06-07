@@ -16,8 +16,6 @@ namespace TowerDefense.src {
             this.cost = 100;
             this.angle = 0;
             this.LoadContent(GV.content);
-            //DEBUG STATEMENTS
-            this.target = GV.EnemyList[0];//Because we know the bagel is the first and only sprite in the Enemy list right now, we can do this
         }
 
         public override void Update(GraphicsDevice graphics) {

@@ -46,7 +46,7 @@ namespace TowerDefense {
             this.grid = new Grid(GraphicsDevice);
             this.back = new Background();
             //this.ex = new Enemy(new Vector2(1, 1), grid, 0.9f);
-
+            new Enemy();
             Startscreen=new StartingScreen(new Rectangle(0,0,GraphicsDevice.Viewport.Width,GraphicsDevice.Viewport.Height));
             base.Initialize();
             //screen size is (800,480) default
@@ -93,7 +93,7 @@ namespace TowerDefense {
                     GV.EnemyList[i].Update(GraphicsDevice);
                 }
 
-                if (GV.tick % 100 == 0) {
+                if (GV.tick % 500 == 0) {
                     //new Enemy(new Vector2(1, 1), grid, 0.9f);
                     new Enemy();
                 }

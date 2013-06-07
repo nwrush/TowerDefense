@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Content;
 using TowerDefense.src;
 namespace TowerDefense {
     static class GV {
+        /// <summary>
+        /// Class to hold variables that different classes will need
+        /// </summary>
         public static List<Enemy> EnemyList = new List<Enemy>();
         public static List<Tower> TowerList = new List<Tower>();
         public static List<Projectile> ProjectileList = new List<Projectile>();

@@ -9,6 +9,9 @@ using C3.XNA;
 
 namespace TowerDefense.src {
     class Grid {
+        /// <summary>
+        /// Was going to be used in sprite pathing and holding towers to specific locations, eventually phased out because it would require too much time
+        /// </summary>
         public int width, height, rows, columns;
         List<Vector2> PointList;
         List<List<Vector2>> RowList;//Holds to the list of the points in each row, each row gets its own list

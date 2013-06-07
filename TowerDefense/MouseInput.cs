@@ -7,6 +7,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TowerDefense {
     public static partial class Input {
+        /// <summary>
+        /// Used with KeyInput to get input from HID
+        /// </summary>
+        /// <returns></returns>
         public static bool isLeftMouseDown() {
             if (Mouse.GetState().LeftButton.Equals(ButtonState.Pressed)) {
                 return true;

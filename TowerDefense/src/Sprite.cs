@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TowerDefense.src {
     class Sprite {
+        /// <summary>
+        /// Base class from which all sprites where supposed to be derived, apparently not
+        /// </summary>
         Texture2D texture;
         Vector2 pos,speed;
         int Xmultiplier, Ymultiplier;

@@ -15,14 +15,12 @@ namespace TowerDefense.src {
         Enemy e;
 
         Rectangle boundingBox;
-        //double angle;
         double damage;
 
         public Projectile(Vector2 pos,Enemy e,double damage,Vector2 speed) {
             this.pos = pos;
             this.speed = -1*speed;
             this.e = e;
-            //this.angle = angle;
             this.damage = damage;
 
             this.LoadContent(GV.content);
